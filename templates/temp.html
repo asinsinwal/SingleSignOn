@@ -1,7 +1,2 @@
-<script>
-jsonData = JSON.parse({{ json_data|tojson|safe }});
-console.log(jsonData);
-alert(jsonData);
-var url = "http://0.0.0.0:3006/developer?id="+jsonData;
-window.location = url;
-</script>
+<a href="http://0.0.0.0:3006/developer?id={{ id }}"  target="_blank">Click here</a>
+

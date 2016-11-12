@@ -113,11 +113,12 @@ def index():
 
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
- 
+    print "In here"
+    print json1_data["id"] 
     if(len(rows)==0):
 	insert(json1_data,cur,con)
     else:
-	return render_template('temp.html', json_data = json1_data["id"])  ## render shortcut one 
+	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one 
 	
 
 
@@ -133,12 +134,15 @@ def index():
 @app.route("/<int:key>/", methods=['GET'])
 def developer(key):
     global cur, con
+    print str(key)
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+    print "here"
     rows = cur.fetchall()
+    print rows
     if(len(rows)==0):
 	return render_template('error.html')  ## render shortcut one
     else:
-	return key  ## render shortcut one 
+	return rows[0]  ## render shortcut one 
 	
     #return render_template('temp.html', json_data = key)  ## render shortcut one 
 
