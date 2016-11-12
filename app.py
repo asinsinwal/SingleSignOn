@@ -10,22 +10,22 @@ import csv
 import logging
 
 import sqlite3 as sqllite
-import sys 
- 
+import sys
+
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
 GOOGLE_CLIENT_ID = '245606374074-3j3dt03ik1jjcbhbrduaod5ar85d5dh7.apps.googleusercontent.com'
 GOOGLE_CLIENT_SECRET = 'GpJsby_uiUebnqO11vWq4rBf'
 REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs console
- 
+
 SECRET_KEY = 'development key'
 DEBUG = True
- 
+
 app = Flask(__name__)
 app.debug = DEBUG
 app.secret_key = SECRET_KEY
 oauth = OAuth()
- 
+
 
 configTable = {}
 cur = None
@@ -85,10 +85,10 @@ def index():
     access_token = session.get('access_token')
     if access_token is None:
         return redirect(url_for('login'))
- 
+
     access_token = access_token[0]
     from urllib2 import Request, urlopen, URLError
- 
+
     headers = {'Authorization': 'OAuth '+access_token}
     req = Request('https://www.googleapis.com/oauth2/v1/userinfo',
                   None, headers)
@@ -103,35 +103,35 @@ def index():
     #return render_template('developer.html')
     #cur.execute("INSERT INTO Config (id, json ) VALUES('" + str(id) + "', '" + json.dumps(request.json) + "')")
     #con.commit()
-   
+
     data = res.read()
     json1_data = json.loads(data)
 
-    # If not using ncsu gmail id then redirect [temporary] 	
+    # If not using ncsu gmail id then redirect [temporary]
     if 'hd' not in json1_data:
 	return redirect(url_for('login'))
 
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
     print "In here"
-    print json1_data["id"] 
+    print json1_data["id"]
     if(len(rows)==0):
 	insert(json1_data,cur,con)
     else:
-	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one 
-	
+	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
+
 
 
    # cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
-#+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')") 
+#+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
     #con.commit()
 
 
     return data
- 
 
 
-@app.route("/<int:key>/", methods=['GET', 'Delete'])
+
+@app.route("/<int:key>/", methods=['GET', 'DELETE'])
 def developer(key):
     global cur, con
 
@@ -143,10 +143,15 @@ def developer(key):
         else:
             return key  ## render shortcut one
 
-    elif request.method == 'Delete':
-        cur.execute("DELETE FROM Identity WHERE id='" + str(key) + "'")
-        con.commit()
-        return redirect(url_for('index'))
+    elif request.method == 'DELETE':
+        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+        rows = cur.fetchall()
+        if(len(rows)==0):
+            abort(404)
+        else:
+            cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
+            con.commit()
+            return redirect(url_for('index'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
@@ -155,31 +160,30 @@ def insert(json1_data,cur,con):
     con.commit()
 
 
-
 @app.route('/login')
 def login():
     callback=url_for('authorized', _external=True)
     return google.authorize(callback=callback)
- 
- 
- 
+
+
+
 @app.route(REDIRECT_URI)
 @google.authorized_handler
 def authorized(resp):
     access_token = resp['access_token']
     session['access_token'] = access_token, ''
     return redirect(url_for('index'))
- 
- 
+
+
 @google.tokengetter
 def get_access_token():
     return session.get('access_token')
- 
- 
+
+
 def main():
     setup_sql_lite_db()
     app.run()
- 
- 
+
+
 if __name__ == '__main__':
     main()
