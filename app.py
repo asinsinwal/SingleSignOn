@@ -129,6 +129,20 @@ def index():
     return data
  
 
+
+@app.route("/<int:key>/", methods=['GET'])
+def developer(key):
+    global cur, con
+    cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+    rows = cur.fetchall()
+    if(len(rows)==0):
+	return render_template('error.html')  ## render shortcut one
+    else:
+	return key  ## render shortcut one 
+	
+    #return render_template('temp.html', json_data = key)  ## render shortcut one 
+
+
 def insert(json1_data,cur,con):
     cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
 + str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')") 
