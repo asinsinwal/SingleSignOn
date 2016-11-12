@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c942473-38f9-49a2-bf1f-77de9c5284d4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/error.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/temp.html" afterPath="$PROJECT_DIR$/templates/temp.html" />
     </list>
     <ignored path="SingleSignOn.iws" />
@@ -30,14 +33,12 @@
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="173" column="17" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
+              <caret line="174" column="17" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="17" />
               <folding>
                 <element signature="e#0#86#0" expanded="true" />
-                <marker date="1478977393489" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
-                <marker date="1478977393489" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
-                <marker date="1478977393489" expanded="true" signature="4048:4105" ph="SELECT verif... Identity" />
-                <marker date="1478977393489" expanded="true" signature="4401:4599" ph="INSERT INTO Identity... " />
-                <marker date="1478977393489" expanded="true" signature="4675:4736" ph="DELETE from " />
+                <marker date="1478985990281" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
+                <marker date="1478985990281" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
+                <marker date="1478985990281" expanded="true" signature="4887:4906" ph="..." />
               </folding>
             </state>
           </provider>
@@ -46,8 +47,8 @@
       <file leaf-file-name="temp.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/temp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+            <state relative-caret-position="226">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#b#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -487,11 +488,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
-            <marker date="1478977393489" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
-            <marker date="1478977393489" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4048:4105" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4401:4599" ph="INSERT INTO Identity... " />
-            <marker date="1478977393489" expanded="true" signature="4675:4736" ph="DELETE from " />
+            <marker date="1478985990281" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
+            <marker date="1478985990281" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
+            <marker date="1478985990281" expanded="true" signature="4887:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -502,11 +501,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
-            <marker date="1478977393489" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
-            <marker date="1478977393489" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4048:4105" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4401:4599" ph="INSERT INTO Identity... " />
-            <marker date="1478977393489" expanded="true" signature="4675:4736" ph="DELETE from " />
+            <marker date="1478985990281" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
+            <marker date="1478985990281" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
+            <marker date="1478985990281" expanded="true" signature="4887:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -562,22 +559,20 @@
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="173" column="17" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
+          <caret line="174" column="17" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="17" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
-            <marker date="1478977393489" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
-            <marker date="1478977393489" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4048:4105" ph="SELECT verif... Identity" />
-            <marker date="1478977393489" expanded="true" signature="4401:4599" ph="INSERT INTO Identity... " />
-            <marker date="1478977393489" expanded="true" signature="4675:4736" ph="DELETE from " />
+            <marker date="1478985990281" expanded="true" signature="1830:2004" ph="CREATE TABLE... IF" />
+            <marker date="1478985990281" expanded="true" signature="3430:3500" ph="SELECT verif... Identity" />
+            <marker date="1478985990281" expanded="true" signature="4887:4906" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/temp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        <state relative-caret-position="226">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#b#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
