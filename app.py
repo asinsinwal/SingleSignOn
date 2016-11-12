@@ -107,7 +107,7 @@ def index():
     data = res.read()
     json1_data = json.loads(data)
 
-    # If not using ncsu gmail id then redirect [ temporary] 	
+    # If not using ncsu gmail id then redirect [temporary] 	
     if 'hd' not in json1_data:
 	return redirect(url_for('login'))
 
@@ -132,6 +132,11 @@ def index():
 def insert(json1_data,cur,con):
     cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
 + str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')") 
+    con.commit()
+
+    
+def delete(json1_data,cur,con):
+    cur.execute("DELETE from Identity WHERE id='" + str(json1_data["id"]) + "'")
     con.commit()
 
 
