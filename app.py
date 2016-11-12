@@ -107,17 +107,18 @@ def index():
     data = res.read()
     json1_data = json.loads(data)
 
-    # If not using ncsu gmail id then redirect [ temporary] 	
+    # If not using ncsu gmail id then redirect [temporary] 	
     if 'hd' not in json1_data:
 	return redirect(url_for('login'))
 
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
- 
+    print "In here"
+    print json1_data["id"] 
     if(len(rows)==0):
 	insert(json1_data,cur,con)
     else:
-	return render_template('temp.html', json_data = json1_data["id"])  ## render shortcut one 
+	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one 
 	
 
 
@@ -129,9 +130,28 @@ def index():
     return data
  
 
+
+@app.route("/<int:key>/", methods=['GET', 'Delete'])
+def developer(key):
+    global cur, con
+
+    if request.method == 'GET':
+        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+        rows = cur.fetchall()
+        if(len(rows)==0):
+            return render_template('error.html')  ## render shortcut one
+        else:
+            return key  ## render shortcut one
+
+    elif request.method == 'Delete':
+        cur.execute("DELETE FROM Identity WHERE id='" + str(key) + "'")
+        con.commit()
+        return redirect(url_for('index'))
+
+    #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
     cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
-+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')") 
++ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
     con.commit()
 
 
