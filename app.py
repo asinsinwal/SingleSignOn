@@ -147,7 +147,7 @@ def developer(key):
         cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
         rows = cur.fetchall()
         if(len(rows)==0):
-            abort(404)
+            return render_template('error.html')
         else:
             cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
             con.commit()
