@@ -109,16 +109,16 @@ def index():
 
     # If not using ncsu gmail id then redirect [temporary]
     if 'hd' not in json1_data:
-	return redirect(url_for('login'))
+        return redirect(url_for('login'))
 
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
     print "In here"
     print json1_data["id"]
     if(len(rows)==0):
-	insert(json1_data,cur,con)
+        insert(json1_data,cur,con)
     else:
-	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
+        return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
 
 
 
@@ -131,27 +131,23 @@ def index():
 
 
 
-@app.route("/<int:key>/", methods=['GET', 'DELETE'])
+@app.route("/<int:key>/", methods=['GET'])
 def developer(key):
     global cur, con
+    cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+    rows = cur.fetchall()
+    if(len(rows)==0):
+        return render_template('error.html')  ## render shortcut one
+    else:
+        return key  ## render shortcut one
 
-    if request.method == 'GET':
-        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
-        rows = cur.fetchall()
-        if(len(rows)==0):
-            return render_template('error.html')  ## render shortcut one
-        else:
-            return key  ## render shortcut one
 
-    elif request.method == 'DELETE':
-        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
-        rows = cur.fetchall()
-        if(len(rows)==0):
-            return render_template('error.html')
-        else:
-            cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
-            con.commit()
-            return redirect(url_for('index'))
+@app.route("/delete/<int:key>/", methods=['DELETE'])
+def delete_token(key):
+    global cur, con
+    cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
+    con.commit()
+    return redirect(url_for('index'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
