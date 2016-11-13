@@ -2,33 +2,26 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
-  </head>
-  <body>
-    <div id="headerContainer" class="headerContainer" align="center">
-        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
-    </div>
-    <ul class="tab">
-        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
-        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
-    </ul>
-    <div id="links">
-        <span>Link 1 :</span><a href="#" target="_blank" onclick="beforeRedirect()">RainbowGraph</a>
-        <!-- <span>Link 1 :</span><a href="http://127.0.0.1:3005/developer?token={{ json_data }}" target="_blank">RainbowGraph</a> -->
-    </div>
-    <div id="manageToken">
-        <h1>Manage Tokens</h1>
-    </div>
-  <script>
+        <script>
 
     function beforeRedirect(){
-        url = "http://127.0.0.1:3005/developer";
-        data = json_data;
-        $.getJSON($SCRIPT_ROOT + '/check_selected', {
-        post: x
-        }, function(data) {
-            var response = data.result;
-            console.log(response);
-        });
+        //previous code
+{#        +<script>#}
+{# +jsonData = JSON.parse({{ json_data|tojson|safe }})#}
+{# +console.log(jsonData)#}
+{# +var url = "http://0.0.0.0:3005/?"+jsonData#}
+{# +window.location = url;#}
+{# +</script>#}
+        //previous code -end
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/postreq", true);
+        xhr.responseType = "JSON";
+        xhr.onload = function(e) {
+        var arrOfStrings = JSON.parse(xhr.response);
+            document.getElementById("label1").innerHTML=arrOfStrings["result"]
+        }
+        xhr.send();
+
     }
 
     function openTab(evt, tabName) {
@@ -45,5 +38,26 @@
     }
     document.getElementById("manageToken").style.display = "none";
     </script>
+
+  </head>
+  <body>
+    <form id="form1" name="form1" method="POST" action="http://google.com">
+    <div id="headerContainer" class="headerContainer" align="center">
+        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+    </div>
+    <ul class="tab">
+        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
+        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+    </ul>
+    <div id="links">
+        <input type="hidden" name="id" value=id>
+        <span>Link 1 :</span><a href="#"  onclick="beforeRedirect()">RainbowGraph</a>
+        <!-- <span>Link 1 :</span><a href="http://127.0.0.1:3005/developer?token= json_data }}" target="_blank">RainbowGraph</a> -->
+    </div>
+    <div id="manageToken">
+        <h1>Manage Tokens</h1>
+    </div>
+        <label id="label1">this is label text</label>
+        </form>
   </body>
 </html>

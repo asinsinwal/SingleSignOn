@@ -11,6 +11,7 @@ import logging
 
 import sqlite3 as sqllite
 import sys
+import httplib, urllib
 
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
@@ -130,8 +131,24 @@ def index():
     return data
 
 
+@app.route("/postreq", methods=['GET','POST'])
+def my_webservice():
+    print "in test web service"
+    id
+    params = urllib.urlencode({'id': id})
+    headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+    conn = httplib.HTTPConnection("127.0.0.1:3005")
+    conn.request("POST", "/developer", params, headers)
+    response = conn.getresponse()
+    print response.status, response.reason
+    data = response.read()
+    print data
+    conn.close()
 
-@app.route("/<int:key>/", methods=['GET', 'DELETE'])
+    return jsonify(result=data)
+
+
+@app.route("/<int:key>/", methods=['GET','POST', 'DELETE'])
 def developer(key):
     global cur, con
 
