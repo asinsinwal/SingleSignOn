@@ -120,14 +120,13 @@ def index():
     else:
         return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
 
+    return render_template('temp.html', id = json1_data["id"])
+
 
 
    # cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
 #+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
     #con.commit()
-
-
-    return data
 
 
 
@@ -142,11 +141,12 @@ def developer(key):
         return key  ## render shortcut one
 
 
-@app.route("/delete/<int:key>/", methods=['DELETE'])
+@app.route("/delete/<int:key>/", methods=['POST'])
 def delete_token(key):
     global cur, con
     cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
     con.commit()
+    session.pop('access_token', None)
     return redirect(url_for('index'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
