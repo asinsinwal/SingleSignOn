@@ -1,0 +1,373 @@
+[{
+	"metadata": {
+		"title": "Intro to Digital Media, Assignment 1",
+		"primary-value-label": "rank average",
+		"higher_primary_value_better": false,
+		"values-label": "ranks",
+		"higher_values_better": false,
+		"best-value-possible": 1,
+		"worst-value-possible": 5,
+		"y-axis-label": "Rank Average",
+		"x-axis-label": "Students",
+		"color-scheme": "5b",
+		"secondary-value-label": "variance"
+
+	},
+	
+
+
+	"data": [
+  {
+    "first_name": "Ryan",
+    "last_name": "Jones",
+    "column_url": "/assignments/737/responses/54715/showcrit?crit_assignment_id=744",
+    "primary_value": 1.285714286,
+    "secondary_value": 0.489795918,
+    "values": [1, 1, 1, 1, 1, 1, 3]
+  },
+  {
+    "first_name": "Craig",
+    "last_name": "Starks",
+    "column_url": "/assignments/737/responses/54771/showcrit?crit_assignment_id=744",
+    "primary_value": 1.666666667,
+    "secondary_value": 0.555555556,
+    "values": [1, 1, 1, 2, 2, 3]
+  },
+  {
+    "first_name": "Abigail",
+    "last_name": "Fraser",
+    "column_url": "/assignments/737/responses/54781/showcrit?crit_assignment_id=744",
+    "primary_value": 1.714285714,
+    "secondary_value": 1.346938776,
+    "values": [1, 1, 1, 1, 1, 3, 4]
+  },
+  {
+    "first_name": "Meredith",
+    "last_name": "Whaley",
+    "column_url": "/assignments/737/responses/54769/showcrit?crit_assignment_id=744",
+    "primary_value": 1.8,
+    "secondary_value": 1.36,
+    "values":[1, 1, 1, 2, 4]
+  },
+  {
+    "first_name": "Maytte",
+    "last_name": "Nunez",
+    "column_url": "/assignments/737/responses/54914/showcrit?crit_assignment_id=744",
+    "primary_value": 1.833333333,
+    "secondary_value": 1.138888889,
+    "values": [1, 1, 1, 2, 2, 4]
+  },
+  {
+    "first_name": "Kristel",
+    "last_name": "Sanchez",
+    "column_url": "/assignments/737/responses/54788/showcrit?crit_assignment_id=744",
+    "primary_value": 2,
+    "secondary_value": 1.2,
+    "values": [1, 1, 2, 2, 4]
+  },
+  {
+    "first_name": "Alexis",
+    "last_name": "Rael",
+    "column_url": "/assignments/737/responses/54916/showcrit?crit_assignment_id=744",
+    "primary_value": 2,
+    "secondary_value": 0.5,
+    "values": [1, 2, 2, 3]
+  },
+  {
+    "first_name": "Dylan",
+    "last_name": "Horyza",
+    "column_url": "/assignments/737/responses/54815/showcrit?crit_assignment_id=744",
+    "primary_value": 2.142857143,
+    "secondary_value": 1.836734694,
+    "values": [1, 1, 1, 2, 2, 3, 5]
+  },
+  {
+    "first_name": "ian",
+    "last_name": "thomson",
+    "column_url": "/assignments/737/responses/54854/showcrit?crit_assignment_id=744",
+    "primary_value": 2.142857143,
+    "secondary_value": 1.265306122,
+    "values": [1, 1, 1, 2, 3, 3, 4]
+  },
+  {
+    "first_name": "Davin",
+    "last_name": "Kim",
+    "column_url": "/assignments/737/responses/54734/showcrit?crit_assignment_id=744",
+    "primary_value": 2.25,
+    "secondary_value": 2.6875,
+    "values": [1, 1, 2, 5]
+  },
+  {
+    "first_name": "Christian",
+    "last_name": "Wolf",
+    "column_url": "/assignments/737/responses/54768/showcrit?crit_assignment_id=744",
+    "primary_value": 2.25,
+    "secondary_value": 1.1875,
+    "values": [1, 2, 2, 4]
+  },
+  {
+    "first_name": "Lynzie",
+    "last_name": "Robb",
+    "column_url": "/assignments/737/responses/54853/showcrit?crit_assignment_id=744",
+    "primary_value": 2.25,
+    "secondary_value": 0.6875,
+    "values": [1, 2, 3, 3]
+  },
+  {
+    "first_name": "Cristina",
+    "last_name": "Smith",
+    "column_url": "/assignments/737/responses/54819/showcrit?crit_assignment_id=744",
+    "primary_value": 2.428571429,
+    "secondary_value": 0.530612245,
+    "values": [2, 2, 2, 2, 2, 3, 4]
+  },
+  {
+    "first_name": "Brenna",
+    "last_name": "Monson",
+    "column_url": "/assignments/737/responses/54778/showcrit?crit_assignment_id=744",
+    "primary_value": 2.6,
+    "secondary_value": 1.84,
+    "values": [1, 2, 2, 3, 5]
+  },
+  {
+    "first_name": "Mahogany",
+    "last_name": "Lambert",
+    "column_url": "/assignments/737/responses/54761/showcrit?crit_assignment_id=744",
+    "primary_value": 2.666666667,
+    "secondary_value": 1.555555556,
+    "values": [1, 3, 4]
+  },
+  {
+    "first_name": "Jonathan",
+    "last_name": "Diaz",
+    "column_url": "/assignments/737/responses/54931/showcrit?crit_assignment_id=744",
+    "primary_value": 2.75,
+    "secondary_value": 2.1875,
+    "values": [1, 2, 3, 5]
+  },
+  {
+    "first_name": "jacob",
+    "last_name": "shingles",
+    "column_url": "/assignments/737/responses/54773/showcrit?crit_assignment_id=744",
+    "primary_value": 2.8,
+    "secondary_value": 0.56,
+    "values": [2, 2, 3, 3, 4]
+  },
+  {
+    "first_name": "Benjamin",
+    "last_name": "Shaul",
+    "column_url": "/assignments/737/responses/54743/showcrit?crit_assignment_id=744",
+    "primary_value": 2.833333333,
+    "secondary_value": 0.472222222,
+    "values": [2, 2, 3, 3, 3, 4]
+  },
+  {
+    "first_name": "Connor",
+    "last_name": "Golobich",
+    "column_url": "/assignments/737/responses/54796/showcrit?crit_assignment_id=744",
+    "primary_value": 2.833333333,
+    "secondary_value": 2.472222222,
+    "values": [1, 1, 2, 4, 4, 5]
+  },
+  {
+    "first_name": "Cory",
+    "last_name": "Calhoun",
+    "column_url": "/assignments/737/responses/54928/showcrit?crit_assignment_id=744",
+    "primary_value": 2.833333333,
+    "secondary_value": 0.805555556,
+    "values": [2, 2, 2, 3, 4, 4]
+  },
+  {
+    "first_name": "Morgan",
+    "last_name": "Helmick",
+    "column_url": "/assignments/737/responses/54721/showcrit?crit_assignment_id=744",
+    "primary_value": 2.857142857,
+    "secondary_value": 1.265306122,
+    "values": [1, 2, 2, 3, 4, 4, 4]
+  },
+  {
+    "first_name": "Alonzo",
+    "last_name": "Celaya",
+    "column_url": "/assignments/737/responses/54729/showcrit?crit_assignment_id=744",
+    "primary_value": 2.857142857,
+    "secondary_value": 0.979591837,
+    "values": [1, 2, 3, 3, 3, 4, 4]
+  },
+  {
+    "first_name": "Megan",
+    "last_name": "Helmick",
+    "column_url": "/assignments/737/responses/54716/showcrit?crit_assignment_id=744",
+    "primary_value": 3,
+    "secondary_value": 1,
+    "values": [1, 3, 3, 3, 4, 4]
+  },
+  {
+    "first_name": "Brenda",
+    "last_name": "McCaffrey",
+    "column_url": "/assignments/737/responses/54720/showcrit?crit_assignment_id=744",
+    "primary_value": 3,
+    "secondary_value": 2,
+    "values": [1, 1, 3, 3, 4, 4, 5]
+  },
+  {
+    "first_name": "Warissara",
+    "last_name": "Phupaibul",
+    "column_url": "/assignments/737/responses/54774/showcrit?crit_assignment_id=744",
+    "primary_value": 3,
+    "secondary_value": 2.8,
+    "values": [1, 2, 2, 5, 5]
+  },
+  {
+    "first_name": "Jose Maria",
+    "last_name": "Fierro",
+    "column_url": "/assignments/737/responses/54843/showcrit?crit_assignment_id=744",
+    "primary_value": 3,
+    "secondary_value": 1.2,
+    "values": [1, 3, 3, 4, 4]
+  },
+  {
+    "first_name": "Walker",
+    "last_name": "Mckenzie",
+    "column_url": "/assignments/737/responses/54934/showcrit?crit_assignment_id=744",
+    "primary_value": 3,
+    "secondary_value": 1.142857143,
+    "values": [1, 2, 3, 3, 4, 4, 4]
+  },
+  {
+    "first_name": "Johnathan",
+    "last_name": "Lemman",
+    "column_url": "/assignments/737/responses/54917/showcrit?crit_assignment_id=744",
+    "primary_value": 3.333333333,
+    "secondary_value": 2.222222222,
+    "values": [1, 2, 3, 4, 5, 5]
+  },
+  {
+    "first_name": "Daeyeob",
+    "last_name": "Chae",
+    "column_url": "/assignments/737/responses/54780/showcrit?crit_assignment_id=744",
+    "primary_value": 3.5,
+    "secondary_value": 1.25,
+    "values": [2, 3, 4, 5]
+  },
+  {
+    "first_name": "Anthony",
+    "last_name": "Franqui",
+    "column_url": "/assignments/737/responses/54783/showcrit?crit_assignment_id=744",
+    "primary_value": 3.5,
+    "secondary_value": 0.916666667,
+    "values": [2, 3, 3, 4, 4, 5]
+  },
+  {
+    "first_name": "Jack",
+    "last_name": "McConnell",
+    "column_url": "/assignments/737/responses/54820/showcrit?crit_assignment_id=744",
+    "primary_value": 3.5,
+    "secondary_value": 1.25,
+    "values": [2, 3, 4, 5]
+  },
+  {
+    "first_name": "Chris",
+    "last_name": "Kamer",
+    "column_url": "/assignments/737/responses/54821/showcrit?crit_assignment_id=744",
+    "primary_value": 3.5,
+    "secondary_value": 2.25,
+    "values": [1, 2, 4, 4, 5, 5]
+  },
+  {
+    "first_name": "Saydi",
+    "last_name": "Driggers",
+    "column_url": "/assignments/737/responses/54718/showcrit?crit_assignment_id=744",
+    "primary_value": 3.571428571,
+    "secondary_value": 1.102040816,
+    "values": [2, 3, 3, 3, 4, 5, 5]
+  },
+  {
+    "first_name": "Daniel",
+    "last_name": "Shannon-Spence",
+    "column_url": "/assignments/737/responses/54872/showcrit?crit_assignment_id=744",
+    "primary_value": 3.571428571,
+    "secondary_value": 0.816326531,
+    "values": [2, 3, 3, 4, 4, 4, 5]
+  },
+  {
+    "first_name": "Alexander",
+    "last_name": "Gross",
+    "column_url": "/assignments/737/responses/54919/showcrit?crit_assignment_id=744",
+    "primary_value": 3.714285714,
+    "secondary_value": 0.775510204,
+    "values": [2, 3, 4, 4, 4, 4, 5]
+  },
+  {
+    "first_name": "Olivia",
+    "last_name": "Fishwick",
+    "column_url": "/assignments/737/responses/54847/showcrit?crit_assignment_id=744",
+    "primary_value": 4,
+    "secondary_value": 0.8,
+    "values": [3, 3, 4, 5, 5]
+  },
+  {
+    "first_name": "Zachery",
+    "last_name": "Reale",
+    "column_url": "/assignments/737/responses/54855/showcrit?crit_assignment_id=744",
+    "primary_value": 4,
+    "secondary_value": 0.857142857,
+    "values": [2, 4, 4, 4, 4, 5, 5]
+  },
+  {
+    "first_name": "Mathew",
+    "last_name": "Evans",
+    "column_url": "/assignments/737/responses/54784/showcrit?crit_assignment_id=744",
+    "primary_value": 4.333333333,
+    "secondary_value": 0.888888889,
+    "values": [3, 5, 5]
+  },
+  {
+    "first_name": "Rupash",
+    "last_name": "Pudasaini",
+    "column_url": "/assignments/737/responses/54823/showcrit?crit_assignment_id=744",
+    "primary_value": 4.4,
+    "secondary_value": 1.44,
+    "values": [2, 5, 5, 5, 5]
+  },
+  {
+    "first_name": "Jennifer",
+    "last_name": "Harrington",
+    "column_url": "/assignments/737/responses/54802/showcrit?crit_assignment_id=744",
+    "primary_value": 4.6,
+    "secondary_value": 0.64,
+    "values": [3, 5, 5, 5, 5]
+  },
+  {
+    "first_name": "Jacob",
+    "last_name": "Sullivan",
+    "column_url": "/assignments/737/responses/54770/showcrit?crit_assignment_id=744",
+    "primary_value": 4.666666667,
+    "secondary_value": 0.555555556,
+    "values": [3, 5, 5, 5, 5, 5]
+  },
+  {
+    "first_name": "Bikram",
+    "last_name": "Baral",
+    "column_url": "/assignments/737/responses/54777/showcrit?crit_assignment_id=744",
+    "primary_value": 5,
+    "secondary_value": 0,
+    "values": [5, 5, 5, 5, 5, 5, 5]
+  },
+  {
+    "first_name": "Michael",
+    "last_name": "Warnick",
+    "column_url": "/assignments/737/responses/54922/showcrit?crit_assignment_id=744",
+    "primary_value": 5,
+    "secondary_value": 0,
+    "values": [5, 5, 5]
+  },
+  {
+    "first_name": "Keyaanna",
+    "last_name": "Pausch",
+    "column_url": "/assignments/737/responses/54775/showcrit?crit_assignment_id=744",
+    "primary_value": 0,
+    "secondary_value": 0,
+    "values": []
+  }
+]
+}]
