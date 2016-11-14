@@ -1,3 +1,5 @@
+import urllib
+
 from django.contrib.sites import requests
 from django.urls import reverse
 from flask import Flask, redirect,render_template, url_for, session ,jsonify , request
@@ -14,8 +16,7 @@ import logging
 import sqlite3 as sqllite
 import sys
 import requests
-import httplib, urllib
-from django.http import HttpResponseRedirect
+import urllib2
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
 GOOGLE_CLIENT_ID = '245606374074-3j3dt03ik1jjcbhbrduaod5ar85d5dh7.apps.googleusercontent.com'
@@ -141,11 +142,21 @@ def index():
 @app.route("/postreq", methods=['GET','POST'])
 def my_webservice():
     print "in test web service"
-    print globalid
-    params = urllib.urlencode({'id': globalid })
-    f = urllib.urlopen("http://127.0.0.1:3005/developer", params)
-    print f.read()
-    return redirect("http://127.0.0.1:3005/developer",code=307)
+    # print globalid
+    # url = "http://127.0.0.1:3005/developer"
+    # params = urllib.urlencode({'id': "id" })
+    # headers = {"id" : str(globalid)}
+    # req = urllib2.Request(url,params,headers)
+    # # req.add_header("id",str(globalid))
+    # resp = urllib2.urlopen(req)
+    # resp.read()
+    # # f = urllib.urlopen("http://127.0.0.1:3005/developer", params)
+    # # print f.read()
+    #
+    # respo =redirect("http://127.0.0.1:3005/developer",code=307)
+    # respo["id"] = str(globalid)
+    # return respo
+    return "some"
 
 
 @app.route("/<int:key>/", methods=['GET','POST', 'DELETE'])
