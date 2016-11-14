@@ -13,14 +13,18 @@
 {# +window.location = url;#}
 {# +</script>#}
         //previous code -end
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/postreq", true);
-        xhr.responseType = "JSON";
-        xhr.onload = function(e) {
-        var arrOfStrings = JSON.parse(xhr.response);
-            document.getElementById("label1").innerHTML=arrOfStrings["result"]
-        }
-        xhr.send();
+        var form1 = document.getElementById("form1");
+        form1.action="/postreq";
+        form1.method = "post"
+        form1.submit();
+{#        var xhr = new XMLHttpRequest();#}
+{#        xhr.open("POST", "/postreq", false);#}
+{#        xhr.responseType = "JSON";#}
+{#        xhr.onload = function(e) {#}
+{#        var arrOfStrings = JSON.parse(xhr.response);#}
+{#            document.getElementById("label1").innerHTML=arrOfStrings["result"]#}
+{#        }#}
+{#        xhr.send();#}
 
     }
 
@@ -41,7 +45,7 @@
 
   </head>
   <body>
-    <form id="form1" name="form1" method="POST" action="http://google.com">
+    <form id="form1" name="form1" method="POST">
     <div id="headerContainer" class="headerContainer" align="center">
         <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
     </div>
@@ -51,8 +55,8 @@
     </ul>
     <div id="links">
         <input type="hidden" name="id" value=id>
-        <span>Link 1 :</span><a href="#"  onclick="beforeRedirect()">RainbowGraph</a>
-        <!-- <span>Link 1 :</span><a href="http://127.0.0.1:3005/developer?token= json_data }}" target="_blank">RainbowGraph</a> -->
+        <span>Link 1 :</span><a href="#" onclick="beforeRedirect()">RainbowGraph</a>
+
     </div>
     <div id="manageToken">
         <h1>Manage Tokens</h1>

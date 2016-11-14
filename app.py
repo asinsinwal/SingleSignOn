@@ -1,3 +1,5 @@
+from django.contrib.sites import requests
+from django.urls import reverse
 from flask import Flask, redirect,render_template, url_for, session ,jsonify , request
 from flask_oauth import OAuth
 from flask_api import status
@@ -11,8 +13,9 @@ import logging
 
 import sqlite3 as sqllite
 import sys
+import requests
 import httplib, urllib
-
+from django.http import HttpResponseRedirect
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
 GOOGLE_CLIENT_ID = '245606374074-3j3dt03ik1jjcbhbrduaod5ar85d5dh7.apps.googleusercontent.com'
@@ -64,7 +67,8 @@ def setup_sql_lite_db():
         print "Error %s:" % e.args[0]
         sys.exit(1)
 
-
+##to store google id value
+globalid=-1
 
 ## Json format to return web api calls
 
@@ -115,6 +119,9 @@ def index():
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
     print "In here"
+    #update globalid to be used by other methods
+    global globalid
+    globalid = json1_data["id"]
     print json1_data["id"]
     if(len(rows)==0):
 	insert(json1_data,cur,con)
@@ -134,18 +141,11 @@ def index():
 @app.route("/postreq", methods=['GET','POST'])
 def my_webservice():
     print "in test web service"
-    id
-    params = urllib.urlencode({'id': id})
-    headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
-    conn = httplib.HTTPConnection("127.0.0.1:3005")
-    conn.request("POST", "/developer", params, headers)
-    response = conn.getresponse()
-    print response.status, response.reason
-    data = response.read()
-    print data
-    conn.close()
-
-    return jsonify(result=data)
+    print globalid
+    params = urllib.urlencode({'id': globalid })
+    f = urllib.urlopen("http://127.0.0.1:3005/developer", params)
+    print f.read()
+    return redirect("http://127.0.0.1:3005/developer",code=307)
 
 
 @app.route("/<int:key>/", methods=['GET','POST', 'DELETE'])
