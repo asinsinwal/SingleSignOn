@@ -1,7 +1,3 @@
-import urllib
-
-from django.contrib.sites import requests
-from django.urls import reverse
 from flask import Flask, redirect,render_template, url_for, session ,jsonify , request
 from flask_oauth import OAuth
 from flask_api import status
@@ -15,8 +11,7 @@ import logging
 
 import sqlite3 as sqllite
 import sys
-import requests
-import urllib2
+
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
 GOOGLE_CLIENT_ID = '245606374074-3j3dt03ik1jjcbhbrduaod5ar85d5dh7.apps.googleusercontent.com'
@@ -68,8 +63,7 @@ def setup_sql_lite_db():
         print "Error %s:" % e.args[0]
         sys.exit(1)
 
-##to store google id value
-globalid=-1
+
 
 ## Json format to return web api calls
 
@@ -115,46 +109,45 @@ def index():
 
     # If not using ncsu gmail id then redirect [temporary]
     if 'hd' not in json1_data:
-	return redirect(url_for('login'))
+        return redirect(url_for('login'))
 
     cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
     rows = cur.fetchall()
     print "In here"
-    #update globalid to be used by other methods
-    global globalid
-    globalid = json1_data["id"]
     print json1_data["id"]
     if(len(rows)==0):
-	insert(json1_data,cur,con)
+        insert(json1_data,cur,con)
     else:
-	return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
+        return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
+
+    return render_template('temp.html', id = json1_data["id"])
+
+
 
    # cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
 #+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
     #con.commit()
-    return data
 
-@app.route("/<int:key>/", methods=['GET','POST', 'DELETE'])
+
+
+@app.route("/<int:key>/", methods=['GET'])
 def developer(key):
     global cur, con
+    cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
+    rows = cur.fetchall()
+    if(len(rows)==0):
+        return render_template('error.html')  ## render shortcut one
+    else:
+        return key  ## render shortcut one
 
-    if request.method == 'GET':
-        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
-        rows = cur.fetchall()
-        if(len(rows)==0):
-            return render_template('error.html')  ## render shortcut one
-        else:
-            return key  ## render shortcut one
 
-    elif request.method == 'DELETE':
-        cur.execute("SELECT verified FROM Identity WHERE id='" + str(key) + "'")
-        rows = cur.fetchall()
-        if(len(rows)==0):
-            return render_template('error.html')
-        else:
-            cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
-            con.commit()
-            return redirect(url_for('index'))
+@app.route("/delete/<int:key>/", methods=['POST'])
+def delete_token(key):
+    global cur, con
+    cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
+    con.commit()
+    session.pop('access_token', None)
+    return redirect(url_for('index'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
