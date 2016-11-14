@@ -4,7 +4,12 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
         <script>
 
-    function beforeRedirect(){
+    function beforeRedirect(str){
+        //check if Rainbow graph service is invoked
+        if(str == "RainbowGraph"){
+        document.getElementById("form1").action = "http://127.0.0.1:3005/developer";
+        document.getElementById("form1").submit();
+            }
         //previous code
 {#        +<script>#}
 {# +jsonData = JSON.parse({{ json_data|tojson|safe }})#}
@@ -13,20 +18,11 @@
 {# +window.location = url;#}
 {# +</script>#}
         //previous code -end
-        var form1 = document.getElementById("form1");
-        form1.action="/postreq";
-        form1.method = "post"
-        form1.submit();
-{#        var xhr = new XMLHttpRequest();#}
-{#        xhr.open("POST", "/postreq", false);#}
-{#        xhr.responseType = "JSON";#}
-{#        xhr.onload = function(e) {#}
-{#        var arrOfStrings = JSON.parse(xhr.response);#}
-{#            document.getElementById("label1").innerHTML=arrOfStrings["result"]#}
-{#        }#}
-{#        xhr.send();#}
-
-    }
+{#        var form1 = document.getElementById("form1");#}
+{#        form1.action="/postreq";#}
+{#        form1.method = "post"#}
+{#        form1.submit();#}
+}
 
     function openTab(evt, tabName) {
         console.log(tabName);
@@ -45,7 +41,8 @@
 
   </head>
   <body>
-    <form id="form1" name="form1" method="POST">
+
+    <form id="form1" name="form1" method="post" action = "">
     <div id="headerContainer" class="headerContainer" align="center">
         <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
     </div>
@@ -54,14 +51,13 @@
         <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
     </ul>
     <div id="links">
-        <input type="hidden" name="id" value=id>
-        <span>Link 1 :</span><a href="#" onclick="beforeRedirect()">RainbowGraph</a>
+        <input type="hidden" name="id" value={{ id }}>
+        <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
 
     </div>
     <div id="manageToken">
         <h1>Manage Tokens</h1>
     </div>
-        <label id="label1">this is label text</label>
         </form>
   </body>
 </html>
