@@ -139,24 +139,24 @@ def index():
     return data
 
 
-@app.route("/postreq", methods=['GET','POST'])
-def my_webservice():
-    print "in test web service"
-    # print globalid
-    # url = "http://127.0.0.1:3005/developer"
-    # params = urllib.urlencode({'id': "id" })
-    # headers = {"id" : str(globalid)}
-    # req = urllib2.Request(url,params,headers)
-    # # req.add_header("id",str(globalid))
-    # resp = urllib2.urlopen(req)
-    # resp.read()
-    # # f = urllib.urlopen("http://127.0.0.1:3005/developer", params)
-    # # print f.read()
-    #
-    # respo =redirect("http://127.0.0.1:3005/developer",code=307)
-    # respo["id"] = str(globalid)
-    # return respo
-    return "some"
+# @app.route("/postreq", methods=['GET','POST'])
+# def my_webservice():
+#     print "in test web service"
+#     # print globalid
+#     # url = "http://127.0.0.1:3005/developer"
+#     # params = urllib.urlencode({'id': "id" })
+#     # headers = {"id" : str(globalid)}
+#     # req = urllib2.Request(url,params,headers)
+#     # # req.add_header("id",str(globalid))
+#     # resp = urllib2.urlopen(req)
+#     # resp.read()
+#     # # f = urllib.urlopen("http://127.0.0.1:3005/developer", params)
+#     # # print f.read()
+#     #
+#     # respo =redirect("http://127.0.0.1:3005/developer",code=307)
+#     # respo["id"] = str(globalid)
+#     # return respo
+#     return "some"
 
 
 @app.route("/<int:key>/", methods=['GET','POST', 'DELETE'])
