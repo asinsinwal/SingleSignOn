@@ -23,16 +23,26 @@
     </div>
   <script>
 
-    function beforeRedirect(){
-        url = "http://127.0.0.1:3005/developer";
-        data = json_data;
-        $.getJSON($SCRIPT_ROOT + '/check_selected', {
-        post: x
-        }, function(data) {
-            var response = data.result;
-            console.log(response);
-        });
-    }
+{#            This JS method shall submit cross domain - Rainbow graph form request#}
+    function beforeRedirect(str){
+        //check if Rainbow graph service is invoked
+        if(str == "RainbowGraph"){
+        document.getElementById("form1").action = "http://127.0.0.1:3005/developer";
+        document.getElementById("form1").submit();
+            }
+        //previous code
+{#        +<script>#}
+{# +jsonData = JSON.parse({{ json_data|tojson|safe }})#}
+{# +console.log(jsonData)#}
+{# +var url = "http://0.0.0.0:3005/?"+jsonData#}
+{# +window.location = url;#}
+{# +</script>#}
+        //previous code -end
+{#        var form1 = document.getElementById("form1");#}
+{#        form1.action="/postreq";#}
+{#        form1.method = "post"#}
+{#        form1.submit();#}
+}
 
     function openTab(evt, tabName) {
         console.log(tabName);
@@ -48,5 +58,26 @@
     }
     document.getElementById("manageToken").style.display = "none";
     </script>
+
+  </head>
+  <body>
+
+    <form id="form1" name="form1" method="post" action = "">
+    <div id="headerContainer" class="headerContainer" align="center">
+        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+    </div>
+    <ul class="tab">
+        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
+        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+    </ul>
+    <div id="links">
+        <input type="hidden" name="id" value={{ id }}>
+        <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
+
+    </div>
+    <div id="manageToken">
+        <h1>Manage Tokens</h1>
+    </div>
+        </form>
   </body>
 </html>
