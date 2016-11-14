@@ -1,2 +1,52 @@
-<a href="http://0.0.0.0:3006/developer?id={{ id }}"  target="_blank">Click here</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
+  </head>
+  <body>
+    <div id="headerContainer" class="headerContainer" align="center">
+        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+    </div>
+    <ul class="tab">
+        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
+        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+    </ul>
+    <div id="links">
+        <span>Link 1 :</span><a href="#" target="_blank" onclick="beforeRedirect()">RainbowGraph</a>
+        <!-- <span>Link 1 :</span><a href="http://127.0.0.1:3005/developer?token={{ json_data }}" target="_blank">RainbowGraph</a> -->
+    </div>
+    <div id="manageToken">
+        <h1>Manage Tokens</h1>
+        <form action='/delete/{{ id}}/' method = "POST">
+        <input type = "submit" value="Delete Token">
+    </form>
+    </div>
+  <script>
 
+    function beforeRedirect(){
+        url = "http://127.0.0.1:3005/developer";
+        data = json_data;
+        $.getJSON($SCRIPT_ROOT + '/check_selected', {
+        post: x
+        }, function(data) {
+            var response = data.result;
+            console.log(response);
+        });
+    }
+
+    function openTab(evt, tabName) {
+        console.log(tabName);
+        if(document.getElementById("links").style.display == "none"){
+            document.getElementById("manageToken").style.display = "none";
+            document.getElementById("links").style.display = "block";
+        }
+        if(document.getElementById("manageToken").style.display == "none"){
+            document.getElementById("links").style.display = "none";
+            document.getElementById("manageToken").style.display = "block";
+        }
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("manageToken").style.display = "none";
+    </script>
+  </body>
+</html>
