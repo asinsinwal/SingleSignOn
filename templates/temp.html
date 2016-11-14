@@ -2,25 +2,6 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
-  </head>
-  <body>
-    <div id="headerContainer" class="headerContainer" align="center">
-        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
-    </div>
-    <ul class="tab">
-        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
-        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
-    </ul>
-    <div id="links">
-        <span>Link 1 :</span><a href="#" target="_blank" onclick="beforeRedirect()">RainbowGraph</a>
-        <!-- <span>Link 1 :</span><a href="http://127.0.0.1:3005/developer?token={{ json_data }}" target="_blank">RainbowGraph</a> -->
-    </div>
-    <div id="manageToken">
-        <h1>Manage Tokens</h1>
-        <form action='/delete/{{ id}}/' method = "POST">
-        <input type = "submit" value="Delete Token">
-    </form>
-    </div>
   <script>
 
 {#            This JS method shall submit cross domain - Rainbow graph form request#}
