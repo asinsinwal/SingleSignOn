@@ -7,6 +7,8 @@ import xlrd
 import numpy as np
 import csv
 import logging
+import base64
+import sys
 import requests
 import sqlite3 as sqllite
 import sys
@@ -350,6 +352,8 @@ def developer():
     print userId
     if userId is None:
 	return render_template('error.html')
+    userId = base64.b64decode(userId)
+    print userId
     request_string = 'http://127.0.0.1:5000/'+(userId);
     r = requests.get(request_string)
     if(r.text == "True"):
