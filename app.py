@@ -1,8 +1,11 @@
 from flask import Flask, redirect,render_template, url_for, session ,jsonify , request
 from flask_oauth import OAuth
+from Crypto.Cipher import AES
 from flask_api import status
 from flask_cors import CORS, cross_origin
 import uuid
+import base64
+import sys
 import json
 import xlrd
 import numpy as np
@@ -118,6 +121,23 @@ def index():
     if(len(rows)==0):
         insert(json1_data,cur,con)
     else:
+        #length = 16 - ( len(json1_data["id"]) % 16 )
+        #json1_data["id"] += bytes([length])*length
+        encoded = base64.b64encode(json1_data["id"])
+        print 'encoded'
+        print encoded
+        print 'decoded'
+        print base64.b64decode(encoded)
+        json1_data["id"] = encoded
+        '''json1_data["id"] = json1_data["id"].zfill(32)
+        print json1_data["id"]
+        print "base is "+base64.b64encode(json1_data["id"])
+        encryption_suite = AES.new('This is a key123', AES.MODE_CBC, 'This is an IV456')
+        print encryption_suite
+        cipher_key = encryption_suite.encrypt(base64.b64encode(json1_data["id"]))
+        print "key is"
+        print cipher_key
+        json1_data["id"] = cipher_key'''
         return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
 
     return render_template('temp.html', id = json1_data["id"])
