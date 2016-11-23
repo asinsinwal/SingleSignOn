@@ -348,19 +348,25 @@ def instructor():
 @app.route('/developer', methods=['GET'])
 @cross_origin()
 def developer():
-    userId = request.args.get('id')
-    print userId
-    if userId is None:
-	return render_template('error.html')
-    userId = base64.b64decode(userId)
-    print userId
-    request_string = 'http://127.0.0.1:5000/'+(userId);
-    r = requests.get(request_string)
-    print r.text
-    if(r.text == "true"):
-	return render_template('developer.html')
-    else:
-	return render_template('error.html')
+    try:
+        userId = request.args.get('id')
+        print userId
+        if userId is None:
+            return redirect("http://127.0.0.1:5000", code=302)
+        userId = base64.b64decode(userId)
+        print userId
+        request_string = 'http://127.0.0.1:5000/'+(userId);
+        r = requests.get(request_string)
+        print r.text
+        if(r.text == "true"):
+            return render_template('developer.html')
+        else:
+            return redirect("http://127.0.0.1:5000", code=302)
+    except RuntimeError:
+        return redirect("http://127.0.0.1:5000", code=302)
+    except UnicodeDecodeError:
+        return redirect("http://127.0.0.1:5000")
+	#return render_template('error.html')
 
 @app.route('/configure', methods=['POST'])
 @cross_origin()
