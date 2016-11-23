@@ -356,7 +356,8 @@ def developer():
     print userId
     request_string = 'http://127.0.0.1:5000/'+(userId);
     r = requests.get(request_string)
-    if(r.text == "True"):
+    print r.text
+    if(r.text == "true"):
 	return render_template('developer.html')
     else:
 	return render_template('error.html')
