@@ -149,12 +149,12 @@ def index():
     #con.commit()
 
 
-
 @app.route("/<int:key>/", methods=['GET'])
 def developer(key):
     global cur, con
-    print 'before db query'+str(key)
-    key = str(key)
+    print 'before db query encoded key = '+str(key)
+    print 'before db query, decoded key = ' +base64.b64decode(key)
+    key = base64.b64decode(key)
     cur.execute("SELECT verified FROM Identity WHERE id='" + key + "'")
     rows = cur.fetchall()
     if(len(rows)==0):
@@ -166,7 +166,7 @@ def developer(key):
 @app.route("/delete/<int:key>/", methods=['POST'])
 def delete_token(key):
     global cur, con
-    cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
+    cur.execute("DELETE from Identity WHERE id='" + base64.b64decode(key) + "'")
     con.commit()
     session.pop('access_token', None)
     return redirect(url_for('index'))
