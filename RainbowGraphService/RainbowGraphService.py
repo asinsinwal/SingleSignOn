@@ -12,9 +12,12 @@ import sys
 import requests
 import sqlite3 as sqllite
 import sys
-
+import requests
 
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+#members for Authentication
+auth_url = "http://127.0.0.1:5000/"
 
 # first file logger
 instructor_logger = logging.getLogger('instructor_logger')
@@ -345,27 +348,31 @@ def instructor():
     return render_template('instructor.html')
 
 
-@app.route('/developer', methods=['GET'])
+@app.route('/developer', methods=['GET','POST'])
 @cross_origin()
 def developer():
     try:
-        userId = request.args.get('id')
-        print userId
+        #User Aunthentication
+        userId =  request.args["id"]
+        isValid = False
         if userId is None:
-            return redirect("http://127.0.0.1:5000", code=302)
-        userId = base64.b64decode(userId)
-        print userId
-        request_string = 'http://127.0.0.1:5000/'+(userId);
-        r = requests.get(request_string)
-        print r.text
-        if(r.text == "true"):
+            return redirect(auth_url, code=302)
+
+        #userId = base64.b64decode(userId)
+        print "Auth request url = "+auth_url+userId
+        validationResponse = requests.get(auth_url+userId)
+        print validationResponse.status_code
+        if(validationResponse.content=="true"):
+            print "User authenticated"
+            isValid = True
+        if(isValid == True):
             return render_template('developer.html')
         else:
-            return redirect("http://127.0.0.1:5000", code=302)
+            return redirect(auth_url, code=302)
     except RuntimeError:
-        return redirect("http://127.0.0.1:5000", code=302)
+        return redirect(auth_url, code=302)
     except UnicodeDecodeError:
-        return redirect("http://127.0.0.1:5000")
+        return redirect(auth_url)
 	#return render_template('error.html')
 
 @app.route('/configure', methods=['POST'])
