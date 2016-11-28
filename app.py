@@ -163,13 +163,16 @@ def developer(key):
         return "true"  ## render shortcut one
 
 
-@app.route("/delete/<string:key>/", methods=['POST'])
+@app.route("/delete/<string:key>/", methods=['GET'])
 def delete_token(key):
     global cur, con
-    cur.execute("DELETE from Identity WHERE id='" + base64.b64decode(key) + "'")
+    print 'before delete query encoded key = '+str(key)
+    print 'before delete query, decoded key = ' +base64.b64decode(key)
+    key = base64.b64decode(key)
+    cur.execute("DELETE from Identity WHERE id='" + key + "'")
     con.commit()
     session.pop('access_token', None)
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
