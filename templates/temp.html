@@ -8,7 +8,7 @@
     function beforeRedirect(str){
         //check if Rainbow graph service is invoked
         if(str == "RainbowGraph"){
-        document.getElementById("form1").action = "http://127.0.0.2:3005/developer";
+        document.getElementById("form1").action = "http://0.0.0.0:3005/developer";
         document.getElementById("form1").submit();
             }
         //previous code
@@ -57,8 +57,11 @@
 
     </div>
     <div id="manageToken">
-        <h1>Manage Tokens</h1>
-    </div>
-        </form>
+         <h1>Manage Tokens</h1>
+         <form2 action='/delete/{{ id }}/' method = "GET">
+         <input type = "submit" value="Delete Token">
+       </form2>
+     </div>
+   </form>
   </body>
 </html>
