@@ -166,9 +166,6 @@ def developer(key):
 @app.route("/delete/<string:key>/", methods=['GET'])
 def delete_token(key):
     global cur, con
-    print 'before delete query encoded key = '+str(key)
-    print 'before delete query, decoded key = ' +base64.b64decode(key)
-    key = base64.b64decode(key)
     cur.execute("DELETE from Identity WHERE id='" + key + "'")
     con.commit()
     session.pop('access_token', None)
