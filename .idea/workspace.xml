@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c942473-38f9-49a2-bf1f-77de9c5284d4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py" afterPath="$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
     </list>
     <ignored path="SingleSignOn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,15 +30,46 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765">
-              <caret line="0" column="10" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="10" />
+            <state relative-caret-position="187">
+              <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
               <folding>
-                <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-                <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-                <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-                <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-                <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+                <element signature="e#0#86#0" expanded="true" />
+                <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+                <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+                <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+                <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+                <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/signup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/signup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/signup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,8 +77,8 @@
       <file leaf-file-name="RainbowGraphService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="354" column="61" selection-start-line="354" selection-start-column="58" selection-end-line="354" selection-end-column="61" />
+            <state relative-caret-position="2943">
+              <caret line="409" column="26" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="26" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
                 <marker date="1479933914300" expanded="true" signature="1145:1248" ph="CREATE TABLE... IF" />
@@ -62,8 +93,8 @@
       <file leaf-file-name="temp.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/temp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="10" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -82,7 +113,7 @@
       <file leaf-file-name="developer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/developer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6184">
+            <state relative-caret-position="234">
               <caret line="448" column="22" selection-start-line="448" selection-start-column="22" selection-end-line="448" selection-end-column="22" />
               <folding />
             </state>
@@ -90,6 +121,14 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,8 +139,10 @@
         <option value="$PROJECT_DIR$/stylesheets/app.css" />
         <option value="$PROJECT_DIR$/static/styles/app.css" />
         <option value="$PROJECT_DIR$/templates/temp.html" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py" />
+        <option value="$PROJECT_DIR$/controller/signup.py" />
+        <option value="$PROJECT_DIR$/templates/signup.html" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -202,25 +243,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RainbowGraphService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SingleSignOn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SingleSignOn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RainbowGraphService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -235,8 +258,12 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Study Material\Python\SingleSignOn" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Study Material\Python\SingleSignOn\static\styles" />
     </key>
@@ -533,11 +560,65 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6018">
+          <caret line="354" column="61" selection-start-line="354" selection-start-column="58" selection-end-line="354" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <marker date="1479933914300" expanded="true" signature="1145:1248" ph="CREATE TABLE... IF" />
+            <marker date="1479933914300" expanded="true" signature="14728:14820" ph="INSERT INTO Config... " />
+            <marker date="1479933914300" expanded="true" signature="15528:15568" ph="DELETE FROM " />
+            <marker date="1479933914300" expanded="true" signature="15648:15693" ph="SELECT json Config" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/temp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/developer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7616">
+          <caret line="448" column="22" selection-start-line="448" selection-start-column="22" selection-end-line="448" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
@@ -585,11 +666,12 @@
         <state relative-caret-position="918">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
@@ -637,11 +719,12 @@
         <state relative-caret-position="2958">
           <caret line="174" column="17" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="17" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
@@ -675,11 +758,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
@@ -689,11 +773,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
@@ -734,26 +819,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/developer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6184">
-          <caret line="448" column="22" selection-start-line="448" selection-start-column="22" selection-end-line="448" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/temp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="354" column="61" selection-start-line="354" selection-start-column="58" selection-end-line="354" selection-end-column="61" />
+        <state relative-caret-position="2943">
+          <caret line="409" column="26" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="26" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
             <marker date="1479933914300" expanded="true" signature="1145:1248" ph="CREATE TABLE... IF" />
@@ -764,16 +833,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/signup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/developer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="448" column="22" selection-start-line="448" selection-start-column="22" selection-end-line="448" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/temp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="187">
+          <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
           <folding>
-            <marker date="1479922217074" expanded="true" signature="1880:2054" ph="CREATE TABLE... IF" />
-            <marker date="1479922217074" expanded="true" signature="3480:3550" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="4991:5043" ph="SELECT verif... Identity" />
-            <marker date="1479922217074" expanded="true" signature="5332:5380" ph="DELETE from " />
-            <marker date="1479922217074" expanded="true" signature="5608:5806" ph="INSERT INTO Identity... " />
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480469813938" expanded="true" signature="1935:2109" ph="CREATE TABLE... IF" />
+            <marker date="1480469813938" expanded="true" signature="3535:3605" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5531:5583" ph="SELECT verif... Identity" />
+            <marker date="1480469813938" expanded="true" signature="5872:5920" ph="DELETE from " />
+            <marker date="1480469813938" expanded="true" signature="6148:6346" ph="INSERT INTO Identity... " />
           </folding>
         </state>
       </provider>
