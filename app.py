@@ -61,7 +61,7 @@ def setup_sql_lite_db():
               "    id VARCHAR, " \
               "    email TEXT," \
 	      "    verified VARCHAR," \
-              "    hd VARCHAR )"
+              "    isAdmin INTEGER )"
         cur.execute(sql)
         con.commit()
 
@@ -114,18 +114,20 @@ def index():
     json1_data = json.loads(data)
 
     # If not using ncsu gmail id then redirect [temporary]
-    if 'hd' not in json1_data:
-        return redirect(url_for('login'))
+    ''''if 'hd' not in json1_data:
+        return redirect(url_for('login'))'''
 
-    cur.execute("SELECT verified FROM Identity WHERE id='" + str(json1_data["id"]) + "'")
+    cur.execute("SELECT verified FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
     rows = cur.fetchall()
     print "In here"
+    print rows
     print json1_data["id"]
     if(len(rows)==0):
-        insert(json1_data,cur,con)
+        return redirect(url_for('signup'))
     else:
         #length = 16 - ( len(json1_data["id"]) % 16 )
         #json1_data["id"] += bytes([length])*length
+        update(json1_data,cur,con)
         encoded = base64.b64encode(json1_data["id"])
         print 'encoded'
         print encoded
@@ -151,7 +153,7 @@ def index():
 #+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
     #con.commit()
 @app.route('/signup')
-def contact():
+def signup():
    form = SignupForm()
    return render_template('signup.html', form = form)
 
@@ -159,13 +161,16 @@ def contact():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = SignupForm()
-
     if request.method == 'POST':
-        if form.validate() == False:
-            flash('All fields are required.')
-            return render_template('signup.html', form=form)
-        else:
-            print "signed in"
+            global cur,con
+            email = form.email.data
+            json = {}
+            json["email"] = str(email)
+            json["verified"] = 1
+            json["id"] = None
+            json["isAdmin"] = 0
+            print json
+            insert(json,cur,con)
             return render_template('temp.html', form=form)
 
 @app.route("/<string:key>/", methods=['GET'])
@@ -195,8 +200,13 @@ def delete_token(key):
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
-    cur.execute("INSERT INTO Identity (id, email ,verified ,hd ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
-+ str(json1_data["verified_email"]) +"', '" + str(json1_data["hd"]) +"')")
+    cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
++ str(json1_data["verified"]) +"', '" + str(json1_data["isAdmin"]) +"')")
+    con.commit()
+
+def update(json1_data,cur,con):
+    print json1_data["id"]
+    cur.execute("UPDATE Identity set id = '"+str(json1_data['id'])+"' where email = '"+json1_data['email']+"'")
     con.commit()
 
 
