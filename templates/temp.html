@@ -62,30 +62,56 @@
         document.getElementById('link').className += 'active';
     }
 
+    function copyToClipboard(elementId) {
+      // Create an auxiliary hidden input
+      var aux = document.createElement("input");
+      // Get the text from the element passed into the input
+      aux.setAttribute("value", document.getElementById(elementId).value);
+      // Append the aux input to the body
+      document.body.appendChild(aux);
+      // Highlight the content
+      aux.select();
+      // Execute the copy command
+      document.execCommand("copy");
+      // Remove the input from the body
+      document.body.removeChild(aux);
+}
+
     </script>
 
   </head>
   <body onload="onLoad()">
 
     <form id="form1" name="form1" method="get" action = "">
-    <div id="headerContainer" class="headerContainer" align="center">
-        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
-    </div>
-    <ul class="tab">
-        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
-        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
-        <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
-    </ul>
-    <div id="links">
-        <input type="hidden" name="id" value={{ data["id"] }}>
-        <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
-    </div>
-    <div id="manageToken">
-        <h1>Manage Tokens</h1>
-    </div>
-    <div id="viewToken">
-        <h1>View Tokens</h1>
-    </div>
+        <div id="headerContainer" class="headerContainer" align="center">
+            <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+        </div>
+        <ul class="tab">
+            <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
+            <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+            <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
+        </ul>
+        <div id="links">
+            <input type="hidden" name="id" value={{ data["id"] }}>
+            <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
+        </div>
+        <div id="manageToken">
+            <h1>Manage Tokens</h1>
+        </div>
+        <div id="viewToken">
+            <div id="example-target" class="example">
+            <div class="input-group">
+                <span>Token : </span>
+                <input id="token_data" type="text" value="{{ data['id'] }}" readonly>
+                <span class="input-group-button">
+                <button class="btn tooltip" type="button" onclick="copyToClipboard('token_data')">
+                    <img class="clippy" src="static/images/clippy.svg" width="13" alt="Click to copy">
+                    <span class="tooltiptext">Copy to clipboard</span>
+                </button>
+                </span>
+            </div>
+            </div>
+        </div>
     </form>
   {% if data["isAdmin"]==1 %}
     <div>Admin</div>
