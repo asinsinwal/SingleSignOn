@@ -98,6 +98,12 @@
             <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
             <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
         </ul>
+        <div class="dropdown">
+            <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
+            <div id="myDropdown" class="dropdown-content">
+             <a href="/logout">Log out</a>
+            </div>
+        </div>
         <div id="links">
             <input type="hidden" name="id" value={{ data["id"] }}>
             <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
@@ -117,12 +123,6 @@
                 </button>
                 </span>
             </div>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
-            <div id="myDropdown" class="dropdown-content">
-             <a href="/logout">Log out</a>
             </div>
         </div>
     </form>
