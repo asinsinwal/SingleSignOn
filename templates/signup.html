@@ -8,10 +8,12 @@
     <div id="headerContainer" class="headerContainer" align="center">
         <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
     </div>
-        <label for = "name">Name</label><br>
-        <input id = "name" name = "name" type = "text" value = "" />
-        <label for = "email">Email ID</label><br>
-        <input id = "email" name = "email" type = "text" value = "" />
+        {{ form.name.label }}
+        {{ form.name }}
+        <br>
+        {{ form.email.label }}
+        {{ form.email }}
+        <input type="submit" value="Submit">
     </form>
   </body>
 </html>

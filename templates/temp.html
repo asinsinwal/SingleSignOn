@@ -8,7 +8,7 @@
     function beforeRedirect(str){
         //check if Rainbow graph service is invoked
         if(str == "RainbowGraph"){
-        document.getElementById("form1").action = "http://127.0.0.2:3005/developer";
+        document.getElementById("form1").action = "http://127.0.0.2:3005/developer?id={{  id }}";
         document.getElementById("form1").submit();
             }
         //previous code
