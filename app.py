@@ -134,18 +134,12 @@ def index():
         print 'decoded'
         print base64.b64decode(encoded)
         json1_data["id"] = encoded
-        '''json1_data["id"] = json1_data["id"].zfill(32)
-        print json1_data["id"]
-        print "base is "+base64.b64encode(json1_data["id"])
-        encryption_suite = AES.new('This is a key123', AES.MODE_CBC, 'This is an IV456')
-        print encryption_suite
-        cipher_key = encryption_suite.encrypt(base64.b64encode(json1_data["id"]))
-        print "key is"
-        print cipher_key
-        json1_data["id"] = cipher_key'''
-        return render_template('temp.html', id = json1_data["id"])  ## render shortcut one
+        cur.execute("SELECT isAdmin FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
+        rows = cur.fetchall()
+        json1_data["isAdmin"] = rows[0][0]
+        return render_template('temp.html', data = json1_data)  ## render shortcut one
 
-    return render_template('temp.html', id = json1_data["id"])
+    return render_template('temp.html', data = json1_data)
 
 
 
@@ -156,6 +150,10 @@ def index():
 def signup():
    form = SignupForm()
    return render_template('signup.html', form = form)
+
+@app.route('/admin')
+def admin():
+   return render_template('admin_login.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -171,7 +169,7 @@ def register():
             json["isAdmin"] = 0
             print json
             insert(json,cur,con)
-            return render_template('temp.html', form=form)
+            return redirect('/')
 
 
 @app.route("/<int:key>/", methods=['GET'])

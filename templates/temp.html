@@ -26,22 +26,46 @@
 }
 
     function openTab(evt, tabName) {
-        console.log(tabName);
-        if(document.getElementById("links").style.display == "none"){
+        if(tabName=="links"){
             document.getElementById("manageToken").style.display = "none";
             document.getElementById("links").style.display = "block";
+            document.getElementById("viewToken").style.display = "none";
+            if(document.getElementById('token')!=null)
+                document.getElementById('token').className -= 'active';
+            if(document.getElementById('viewtoken')!=null)
+                document.getElementById('viewtoken').className -= 'active';
         }
-        if(document.getElementById("manageToken").style.display == "none"){
+        else if(tabName=="token"){
             document.getElementById("links").style.display = "none";
             document.getElementById("manageToken").style.display = "block";
+            document.getElementById("viewToken").style.display = "none";
+            if(document.getElementById('link')!=null)
+                document.getElementById('link').className -= 'active';
+            if(document.getElementById('viewtoken')!=null)
+                document.getElementById('viewtoken').className -= 'active';
+        }
+        else if(tabName=="viewtoken"){
+            document.getElementById("links").style.display = "none";
+            document.getElementById("manageToken").style.display = "none";
+            document.getElementById("viewToken").style.display = "block";
+            if(document.getElementById('link')!=null)
+                document.getElementById('link').className -= 'active';
+            if(document.getElementById('token')!=null)
+                document.getElementById('token').className -= 'active';
         }
         evt.currentTarget.className += " active";
     }
-    document.getElementById("manageToken").style.display = "none";
+
+    function onLoad(){
+        document.getElementById("manageToken").style.display = "none";
+        document.getElementById("viewToken").style.display = "none";
+        document.getElementById('link').className += 'active';
+    }
+
     </script>
 
   </head>
-  <body>
+  <body onload="onLoad()">
 
     <form id="form1" name="form1" method="get" action = "">
     <div id="headerContainer" class="headerContainer" align="center">
@@ -50,15 +74,21 @@
     <ul class="tab">
         <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
         <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+        <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
     </ul>
     <div id="links">
-        <input type="hidden" name="id" value={{ id }}>
+        <input type="hidden" name="id" value={{ data["id"] }}>
         <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
-
     </div>
     <div id="manageToken">
         <h1>Manage Tokens</h1>
     </div>
-        </form>
+    <div id="viewToken">
+        <h1>View Tokens</h1>
+    </div>
+    </form>
+  {% if data["isAdmin"]==1 %}
+    <div>Admin</div>
+  {% endif %}
   </body>
 </html>
