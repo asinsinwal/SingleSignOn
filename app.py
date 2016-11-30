@@ -14,6 +14,7 @@ import numpy as np
 import csv
 import logging
 
+from admin import administrator
 
 import sqlite3 as sqllite
 import sys
@@ -224,6 +225,16 @@ def authorized(resp):
     session['access_token'] = access_token, ''
     return redirect(url_for('index'))
 
+
+@app.route('/admin')
+def admin():
+    global users
+    print "admin here"
+    userrecords = administrator().users(con)
+    users = json.dump(userrecords,default=lambda o: o.__dict__)
+
+    #jh
+    return render_template("admin.html")
 
 @google.tokengetter
 def get_access_token():
