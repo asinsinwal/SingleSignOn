@@ -191,6 +191,9 @@ def developer(key):
 @app.route("/delete/<string:key>/", methods=['GET'])
 def delete_token(key):
     global cur, con
+    print "key should be ----->"
+    print base64.b64encode(123)
+    print "------------------------------------"
     print 'before delete query encoded key = '+str(key)
     print 'before delete query, decoded key = ' +base64.b64decode(key)
     key = base64.b64decode(key)
@@ -231,10 +234,25 @@ def admin():
     global users
     print "admin here"
     userrecords = administrator().users(con)
-    users = json.dump(userrecords,default=lambda o: o.__dict__)
+    users = json.loads(userrecords)
+    print "users----------------------->"
+    print users
+    return render_template("admin.html",users=users)
 
-    #jh
-    return render_template("admin.html")
+@app.route("/grant_access/<string:email>/", methods=['GET'])
+def grant_access(email):
+    cur.execute("UPDATE Identity SET isAdmin =1 WHERE email='" + email + "'")
+    con.commit()
+    return redirect(url_for('admin'))
+
+@app.route("/delete_user/<string:email>/", methods=['GET'])
+def delete_user(email):
+    print 'before delete email = '+ email
+    cur.execute("DELETE from Identity WHERE email='" + email + "'")
+    con.commit()
+    return redirect(url_for('admin'))
+
+
 
 @google.tokengetter
 def get_access_token():
