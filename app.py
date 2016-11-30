@@ -155,6 +155,10 @@ def signup():
 def admin():
    return render_template('admin_login.html')
 
+@app.route('/logout')
+def logout():
+    return render_template('logout.html')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

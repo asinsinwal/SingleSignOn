@@ -4,26 +4,13 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
   <script>
 
-{#            This JS method shall submit cross domain - Rainbow graph form request#}
     function beforeRedirect(str){
         //check if Rainbow graph service is invoked
         if(str == "RainbowGraph"){
-        document.getElementById("form1").action = "http://127.0.0.2:3005/developer?id={{  id }}";
-        document.getElementById("form1").submit();
-            }
-        //previous code
-{#        +<script>#}
-{# +jsonData = JSON.parse({{ json_data|tojson|safe }})#}
-{# +console.log(jsonData)#}
-{# +var url = "http://0.0.0.0:3005/?"+jsonData#}
-{# +window.location = url;#}
-{# +</script>#}
-        //previous code -end
-{#        var form1 = document.getElementById("form1");#}
-{#        form1.action="/postreq";#}
-{#        form1.method = "post"#}
-{#        form1.submit();#}
-}
+            document.getElementById("form1").action = "http://127.0.0.2:3005/developer?id={{  id }}";
+            document.getElementById("form1").submit();
+        }
+    }
 
     function openTab(evt, tabName) {
         if(tabName=="links"){
@@ -75,7 +62,27 @@
       document.execCommand("copy");
       // Remove the input from the body
       document.body.removeChild(aux);
-}
+    }
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
 
     </script>
 
@@ -112,7 +119,14 @@
             </div>
             </div>
         </div>
+        <div class="dropdown">
+            <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
+            <div id="myDropdown" class="dropdown-content">
+             <a href="/logout">Log out</a>
+            </div>
+        </div>
     </form>
+
   {% if data["isAdmin"]==1 %}
     <div>Admin</div>
   {% endif %}
