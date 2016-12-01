@@ -48,7 +48,24 @@
         </table>
     </div>
     <div id="pending_requests" class="tabcontent">
+                <table>
+            <tr>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
 
+                {%  for user in users %}
+                    <tr>
+                    <td>
+                        {{ user['email'] }}
+                    </td>
+                    <td>
+                        <input type="button" value="Approve" onclick="approve('{{ user['email'] }}');">
+                    </td>
+                    </tr>
+                {% endfor %}
+
+        </table>
     </div>
     <script>
         function openTab(evt, tabName) {
@@ -78,6 +95,15 @@
             var confirm = window.confirm("Are you sure you want to give admin access to "+id+"?")
             if(confirm==true){
                 document.getElementById("admin_form").action = "http://127.0.0.1:5000/grant_access/"+id
+                document.getElementById("admin_form").submit()
+            }
+
+        }
+
+        function approve(id) {
+            var confirm = window.confirm("Are you sure you want to approve access for "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/verify/"+id
                 document.getElementById("admin_form").submit()
             }
 

@@ -248,6 +248,16 @@ def grant_access(email):
     con.commit()
     return redirect(url_for('admin'))
 
+@app.route("/verify/<string:email>/", methods=['GET'])
+def verify(email):
+    print 'before verify access email = ' + email
+    sqlquery = "UPDATE Identity SET verified =1 WHERE email='" + email + "'"
+    print 'sql query = ' + sqlquery
+    cur.execute(sqlquery)
+    con.commit()
+    return redirect(url_for('admin'))
+
+
 @app.route("/delete_user/<string:email>/", methods=['GET'])
 def delete_user(email):
     print 'before delete email = '+ email
