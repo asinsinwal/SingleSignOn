@@ -20,7 +20,6 @@
 
 </head>
 <body>
-{{ users }}
     <form id = "admin_form" name="admin_form"action="">
         <ul class="tab">
         <li><a href="javascript:void(0)" class="tablinks" id="default_tab" onclick="openTab(event, 'manage_users')">Manage Users</a></li>
@@ -34,15 +33,14 @@
                 <th>Actions</th>
             </tr>
 
-                {%  for user in users
-                        if(user['id'])%}
+                {%  for user in users %}
                     <tr>
                     <td>
                         {{ user['email'] }}
                     </td>
                     <td>
-                        <input type="button" value="Delete" onclick="delete_user({{ user['email'] }})">
-                        <input type="button" value="Make Admin" onclick="grantAccess({{ user['id'] }})">
+                        <input type="button" value="Delete" onclick="delete_user('{{ user['email'] }}');">
+                        <input type="button" value="Make Admin" onclick="makeadmin('{{ user['email'] }}');">
                     </td>
                     </tr>
                 {% endfor %}
@@ -64,27 +62,25 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-{#        if(document.getElementById("manage_users").style.display == "none"){#}
-{#            document.getElementById("pending_requests").style.display = "none";#}
-{#            document.getElementById("manage_users").style.display = "block";#}
-{#        }#}
-{#        else if(document.getElementById("pending_requests").style.display == "none"){#}
-{#            document.getElementById("manage_users").style.display = "none";#}
-{#            document.getElementById("pending_requests").style.display = "block";#}
-{#        }#}
+
         document.getElementById(tabName).style.display = "block"
         evt.currentTarget.className += " active";
     }
         function delete_user (id) {
-            alert("delete_user param =="+id)
-            document.getElementById("admin_form").action = "http://127.0.0.1:5000/delete_user/"+id
-            document.getElementById("admin_form").submit()
+            var confirm = window.confirm("Are you sure you want to delete "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/delete_user/"+id
+                document.getElementById("admin_form").submit()
+            }
+
         }
-        function grantAccess(id) {
-            alert("grantAccess param =="+id)
-            id = window.btoa(id)
-            document.getElementById("admin_form").action = "http://127.0.0.1:5000/grant_access/"+id
-            document.getElementById("admin_form").submit()
+        function makeadmin(id) {
+            var confirm = window.confirm("Are you sure you want to give admin access to "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/grant_access/"+id
+                document.getElementById("admin_form").submit()
+            }
+
         }
     document.getElementById("default_tab").click();
     </script>

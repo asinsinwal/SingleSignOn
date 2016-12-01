@@ -241,6 +241,9 @@ def admin():
 
 @app.route("/grant_access/<string:email>/", methods=['GET'])
 def grant_access(email):
+    print 'before grant access email = ' + email
+    sqlquery = "UPDATE Identity SET isAdmin =1 WHERE email='" + email + "'"
+    print 'sql query = ' + sqlquery
     cur.execute("UPDATE Identity SET isAdmin =1 WHERE email='" + email + "'")
     con.commit()
     return redirect(url_for('admin'))
