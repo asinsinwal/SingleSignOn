@@ -40,7 +40,9 @@
                     </td>
                     <td>
                         <input type="button" value="Delete" onclick="delete_user('{{ user['email'] }}');">
-                        <input type="button" value="Make Admin" onclick="makeadmin('{{ user['email'] }}');">
+                        {%  if user['isadmin']==0 %}
+                            <input type="button" value="Make Admin" onclick="makeadmin('{{ user['email'] }}');">
+                        {% endif %}
                     </td>
                     </tr>
                 {% endfor %}
@@ -55,6 +57,7 @@
             </tr>
 
                 {%  for user in users %}
+                    {%  if user['verified']=='0' %}
                     <tr>
                     <td>
                         {{ user['email'] }}
@@ -62,7 +65,9 @@
                     <td>
                         <input type="button" value="Approve" onclick="approve('{{ user['email'] }}');">
                     </td>
+
                     </tr>
+                    {% endif %}
                 {% endfor %}
 
         </table>
