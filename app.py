@@ -1,16 +1,13 @@
 from flask import Flask, redirect,render_template, url_for, session ,jsonify , request
+from flask import Markup
 from flask import flash
 from flask_oauth import OAuth
 from signup import SignupForm
-from Crypto.Cipher import AES
-from flask_api import status
-from flask_cors import CORS, cross_origin
 import uuid
 import base64
 import sys
 import json
 import xlrd
-import numpy as np
 import csv
 import logging
 
@@ -126,6 +123,8 @@ def index():
     print json1_data["id"]
     if(len(rows)==0):
         return redirect(url_for('signup'))
+    elif(str(rows[0][0])=='0'):
+            return render_template('approval.html')
     else:
         #length = 16 - ( len(json1_data["id"]) % 16 )
         #json1_data["id"] += bytes([length])*length
@@ -136,9 +135,12 @@ def index():
         print 'decoded'
         print base64.b64decode(encoded)
         json1_data["id"] = encoded
-        cur.execute("SELECT isAdmin FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
+        cur.execute("SELECT isAdmin,calls FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
         rows = cur.fetchall()
+        print rows[0][0]
+        print rows[0][1]
         json1_data["isAdmin"] = rows[0][0]
+        json1_data["calls"] = rows[0][1]
         return render_template('temp.html', data = json1_data)  ## render shortcut one
 
     return render_template('temp.html', data = json1_data)
@@ -153,14 +155,13 @@ def signup():
    form = SignupForm()
    return render_template('signup.html', form = form)
 
-@app.route('/admin_login')
-def admin_login():
-   return render_template('admin_login.html')
-
 @app.route('/logout')
 def logout():
     return render_template('logout.html')
 
+@app.route('/approval')
+def approval():
+    return render_template('approval.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -170,12 +171,12 @@ def register():
             email = form.email.data
             json = {}
             json["email"] = str(email)
-            json["verified"] = 1
+            json["verified"] = 0
             json["id"] = None
             json["isAdmin"] = 0
             print json
             insert(json,cur,con)
-            return redirect('/')
+            return redirect('/approval')
 
 @app.route("/<int:key>/", methods=['GET'])
 def developer(key):
@@ -187,16 +188,28 @@ def developer(key):
     if(len(rows)==0):
         return render_template('error.html')  ## render shortcut one
     else:
-        return "true"  ## render shortcut one
+        cur.execute("SELECT calls FROM Identity WHERE id='" + key + "'")
+        calls = cur.fetchall()
+        no_calls = int(calls[0][0])
+        if (no_calls <= 0):
+            message = Markup("<h1>Voila! Platform is ready to used</h1>")
+            flash(message)
+            return redirect('/')
+        else:
+            no_calls = int(calls[0][0]) - int(1)
+            cur.execute("Update Identity SET calls = '" + str(no_calls) + "' WHERE id='" + key + "'")
+            con.commit()
+            return "true"  ## render shortcut one
 
 
-@app.route("/delete/<int:key>/", methods=['POST'])
-def delete_token(key):
+@app.route("/delete_token", methods=['GET'])
+def delete_token():
     global cur, con
-    cur.execute("DELETE from Identity WHERE id='" + str(key) + "'")
+    key = request.args.get('id')
+    cur.execute("UPDATE Identity set id = 'None' WHERE id='" + str(key) + "'")
     con.commit()
     session.pop('access_token', None)
-    return redirect(url_for('index'))
+    return redirect(url_for('logout'))
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):

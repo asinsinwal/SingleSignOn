@@ -98,6 +98,11 @@
             <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
             <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
         </ul>
+        <div class="aview">
+            {% if data["isAdmin"]==1 %}
+                <a href="/admin">Admin view</a>
+            {% endif %}
+        </div>
         <div class="dropdown">
             <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
             <div id="myDropdown" class="dropdown-content">
@@ -109,7 +114,7 @@
             <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
         </div>
         <div id="manageToken">
-            <h1>Manage Tokens</h1>
+            <a href="/delete_token?id={{ id }}">Delete Token</a>
         </div>
         <div id="viewToken">
             <div id="example-target" class="example">
@@ -125,11 +130,11 @@
             </div>
             </div>
         </div>
-    </form>
 
-  {% if data["isAdmin"]==1 %}
-    <div>Admin</div>
-  {% endif %}
+        {% if data["calls"]==0 %}
+                <h1>You have used maximum allowed calls for the day!</h1>
+            {% endif %}
+    </form>
 
   </body>
 </html>
