@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c942473-38f9-49a2-bf1f-77de9c5284d4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/styles/app.css" afterPath="$PROJECT_DIR$/static/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/temp.html" afterPath="$PROJECT_DIR$/templates/temp.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SingleSignOn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +29,7 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
+            <state relative-caret-position="2278">
               <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding>
                 <element signature="e#0#86#0" expanded="true" />
@@ -53,7 +52,7 @@
       <file leaf-file-name="RainbowGraphService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="5899">
               <caret line="360" column="17" selection-start-line="360" selection-start-column="13" selection-end-line="360" selection-end-column="17" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
@@ -128,7 +127,7 @@
       <file leaf-file-name="temp.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/temp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1506">
+            <state relative-caret-position="1785">
               <caret line="105" column="14" selection-start-line="105" selection-start-column="14" selection-end-line="105" selection-end-column="14" />
               <folding />
             </state>
@@ -138,8 +137,8 @@
       <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/styles/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="57" column="14" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+            <state relative-caret-position="316">
+              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -219,8 +218,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -611,6 +610,120 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+            <marker date="1480535542114" expanded="true" signature="1935:2114" ph="CREATE TABLE... IF" />
+            <marker date="1480535542114" expanded="true" signature="3547:3623" ph="SELECT verif... Identity" />
+            <marker date="1480535542114" expanded="true" signature="4149:4224" ph="SELECT isAdm... Identity" />
+            <marker date="1480535542114" expanded="true" signature="5551:5603" ph="SELECT verif... Identity" />
+            <marker date="1480535542114" expanded="true" signature="5892:5940" ph="DELETE from " />
+            <marker date="1480535542114" expanded="true" signature="6168:6332" ph="INSERT INTO Identity... " />
+            <marker date="1480535542114" expanded="true" signature="6168:6370" ph="INSERT INTO Identity... " />
+            <marker date="1480535542114" expanded="true" signature="6168:6372" ph="INSERT INTO Identity... " />
+            <marker date="1480535542114" expanded="true" signature="6467:6556" ph="UPDATE Ident... " />
+            <marker date="1480535542114" expanded="true" signature="6467:6559" ph="UPDATE Ident... " />
+            <marker date="1480535542114" expanded="true" signature="6467:6561" ph="UPDATE Ident... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6120">
+          <caret line="360" column="17" selection-start-line="360" selection-start-column="13" selection-end-line="360" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <marker date="1479933914300" expanded="true" signature="1145:1248" ph="CREATE TABLE... IF" />
+            <marker date="1479933914300" expanded="true" signature="14728:14820" ph="INSERT INTO Config... " />
+            <marker date="1479933914300" expanded="true" signature="15528:15568" ph="DELETE FROM " />
+            <marker date="1479933914300" expanded="true" signature="15648:15693" ph="SELECT json Config" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RainbowGraphService/templates/developer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1479498326076" expanded="true" signature="21:22356" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="32:270" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="281:22348" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="298:4257" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="333:1248" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="480:965" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="527:947" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="1285:2040" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="1445:1534" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="1492:1516" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="2085:4239" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="2389:2654" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="2660:3284" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="2843:3207" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="3568:3649" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="3659:3715" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="3836:3897" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="3928:4076" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="4082:4193" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="4308:4669" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="4329:4612" ph="{...}" />
+            <marker date="1479498326076" expanded="true" signature="4801:5833" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="5870:6096" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="6024:6081" ph="..." />
+            <marker date="1479498326076" expanded="false" signature="6106:6112" ph=" " />
+            <marker date="1479498326076" expanded="true" signature="6148:21991" ph="..." />
+            <marker date="1479498326076" expanded="false" signature="6244:6250" ph=" " />
+            <marker date="1479498326076" expanded="true" signature="6437:21663" ph="..." />
+            <marker date="1479498326076" expanded="true" signature="21679:21976" ph="..." />
+            <marker date="1479498326076" expanded="false" signature="21846:21852" ph=" " />
+            <marker date="1479498326076" expanded="true" signature="22020:22336" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding>
+            <marker date="1480472603385" expanded="true" signature="21:566" ph="..." />
+            <marker date="1480472603385" expanded="true" signature="30:116" ph="..." />
+            <marker date="1480472603385" expanded="true" signature="125:558" ph="..." />
+            <marker date="1480472603385" expanded="true" signature="171:548" ph="..." />
+            <marker date="1480472603385" expanded="true" signature="241:368" ph="..." />
+            <marker date="1480472603385" expanded="false" signature="298:327" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/temp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" column="14" selection-start-line="105" selection-start-column="14" selection-end-line="105" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1077,13 +1190,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RainbowGraphService/RainbowGraphService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="5899">
           <caret line="360" column="17" selection-start-line="360" selection-start-column="13" selection-end-line="360" selection-end-column="17" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
@@ -1097,7 +1209,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="2278">
           <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
@@ -1126,7 +1238,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/temp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1506">
+        <state relative-caret-position="1785">
           <caret line="105" column="14" selection-start-line="105" selection-start-column="14" selection-end-line="105" selection-end-column="14" />
           <folding />
         </state>
@@ -1134,8 +1246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/styles/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="57" column="14" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+        <state relative-caret-position="316">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
           <folding />
         </state>
       </provider>
