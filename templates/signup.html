@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
+  </head>
+  <body>
+    <form method="post" action = "/register">
+    <div id="headerContainer" class="headerContainer" align="center">
+        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+    </div>
+        {{ form.name.label }}
+        {{ form.name }}
+        <br>
+        {{ form.email.label }}
+        {{ form.email }}
+        <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
