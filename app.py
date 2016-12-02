@@ -14,6 +14,7 @@ import numpy as np
 import csv
 import logging
 
+from admin import administrator
 
 import sqlite3 as sqllite
 import sys
@@ -119,6 +120,7 @@ def index():
 
     cur.execute("SELECT verified FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
     rows = cur.fetchall()
+    print json1_data
     print "In here"
     print rows
     print json1_data["id"]
@@ -151,8 +153,8 @@ def signup():
    form = SignupForm()
    return render_template('signup.html', form = form)
 
-@app.route('/admin')
-def admin():
+@app.route('/admin_login')
+def admin_login():
    return render_template('admin_login.html')
 
 @app.route('/logout')
@@ -174,7 +176,6 @@ def register():
             print json
             insert(json,cur,con)
             return redirect('/')
-
 
 @app.route("/<int:key>/", methods=['GET'])
 def developer(key):
@@ -222,6 +223,44 @@ def authorized(resp):
     access_token = resp['access_token']
     session['access_token'] = access_token, ''
     return redirect(url_for('index'))
+
+
+@app.route('/admin')
+def admin():
+    global users
+    print "admin here"
+    userrecords = administrator().users(con)
+    users = json.loads(userrecords)
+    print "users----------------------->"
+    print users
+    return render_template("admin.html",users=users)
+
+@app.route("/grant_access/<string:email>/", methods=['GET'])
+def grant_access(email):
+    print 'before grant access email = ' + email
+    sqlquery = "UPDATE Identity SET isAdmin =1 WHERE email='" + email + "'"
+    print 'sql query = ' + sqlquery
+    cur.execute("UPDATE Identity SET isAdmin =1 WHERE email='" + email + "'")
+    con.commit()
+    return redirect(url_for('admin'))
+
+@app.route("/verify/<string:email>/", methods=['GET'])
+def verify(email):
+    print 'before verify access email = ' + email
+    sqlquery = "UPDATE Identity SET verified =1 WHERE email='" + email + "'"
+    print 'sql query = ' + sqlquery
+    cur.execute(sqlquery)
+    con.commit()
+    return redirect(url_for('admin'))
+
+
+@app.route("/delete_user/<string:email>/", methods=['GET'])
+def delete_user(email):
+    print 'before delete email = '+ email
+    cur.execute("DELETE from Identity WHERE email='" + email + "'")
+    con.commit()
+    return redirect(url_for('admin'))
+
 
 
 @google.tokengetter

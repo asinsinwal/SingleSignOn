@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th, td {
+            padding: 15px;
+        }
+        table {
+           border-spacing: 5px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+    <form id = "admin_form" name="admin_form"action="">
+        <ul class="tab">
+        <li><a href="javascript:void(0)" class="tablinks" id="default_tab" onclick="openTab(event, 'manage_users')">Manage Users</a></li>
+        <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'pending_requests')">Pending Requests</a></li>
+        </ul>
+    </form>
+    <div id="manage_users" class="tabcontent">
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+
+                {%  for user in users %}
+                    <tr>
+                    <td>
+                        {{ user['email'] }}
+                    </td>
+                    <td>
+                        <input type="button" value="Delete" onclick="delete_user('{{ user['email'] }}');">
+                        <input type="button" value="Make Admin" onclick="makeadmin('{{ user['email'] }}');">
+                    </td>
+                    </tr>
+                {% endfor %}
+
+        </table>
+    </div>
+    <div id="pending_requests" class="tabcontent">
+                <table>
+            <tr>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+
+                {%  for user in users %}
+                    <tr>
+                    <td>
+                        {{ user['email'] }}
+                    </td>
+                    <td>
+                        <input type="button" value="Approve" onclick="approve('{{ user['email'] }}');">
+                    </td>
+                    </tr>
+                {% endfor %}
+
+        </table>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            console.log(tabName);
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+               tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+        document.getElementById(tabName).style.display = "block"
+        evt.currentTarget.className += " active";
+    }
+        function delete_user (id) {
+            var confirm = window.confirm("Are you sure you want to delete "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/delete_user/"+id
+                document.getElementById("admin_form").submit()
+            }
+
+        }
+        function makeadmin(id) {
+            var confirm = window.confirm("Are you sure you want to give admin access to "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/grant_access/"+id
+                document.getElementById("admin_form").submit()
+            }
+
+        }
+
+        function approve(id) {
+            var confirm = window.confirm("Are you sure you want to approve access for "+id+"?")
+            if(confirm==true){
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/verify/"+id
+                document.getElementById("admin_form").submit()
+            }
+
+        }
+    document.getElementById("default_tab").click();
+    </script>
+</body>
+</html>
