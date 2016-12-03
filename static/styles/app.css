@@ -138,8 +138,25 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     float: right;
     position: relative;
     display: inline-block;
-    margin-top: -51px;
+    margin-top: -50px;
     margin-right: 20px;
+}
+
+.aview{
+    width: 100px;
+    position: absolute;
+    left: 80%;
+    margin-top: -50px;
+    padding: 15px;
+    border: grey solid 1px;
+}
+
+.aview1{
+    width: 100px;
+    position: absolute;
+    left: 80%;
+    padding: 15px;
+    border: grey solid 1px;
 }
 
 .dropdown-content {
