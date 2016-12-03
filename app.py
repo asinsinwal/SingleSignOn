@@ -61,7 +61,8 @@ def setup_sql_lite_db():
               "    id VARCHAR, " \
               "    email TEXT," \
 	      "    verified VARCHAR," \
-              "    isAdmin INTEGER )"
+              "    isAdmin INTEGER " \
+              " calls INTEGER)"
         cur.execute(sql)
         con.commit()
 
@@ -178,6 +179,7 @@ def register():
             json["verified"] = 0
             json["id"] = None
             json["isAdmin"] = 0
+            json["calls"] = 20
             print json
             insert(json,cur,con)
             return redirect('/approval')
@@ -215,8 +217,8 @@ def delete_token():
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
-    cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
-+ str(json1_data["verified"]) +"', '" + str(json1_data["isAdmin"]) +"')")
+    cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin, calls ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
++ str(json1_data["verified"]) +"', '" + str(json1_data["isAdmin"]) +"', '" + str(json1_data["calls"]) +"')")
     con.commit()
 
 def update(json1_data,cur,con):
