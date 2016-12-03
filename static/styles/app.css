@@ -154,7 +154,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 .aview1{
     width: 100px;
     position: absolute;
-    left: 80%;
+    left: 70%;
     padding: 15px;
     border: grey solid 1px;
 }

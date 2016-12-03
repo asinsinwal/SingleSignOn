@@ -104,7 +104,7 @@
             </div>
         {% endif %}
         <div class="dropdown">
-            {%  if data['name']==nil %}
+            {%  if data['name']=="" %}
                 <button onmouseover="myFunction()" class="dropbtn"> "User"</button>
                 <div id="myDropdown" class="dropdown-content">
                 <a href="/logout">Log out</a>
