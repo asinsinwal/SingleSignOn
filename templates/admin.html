@@ -97,7 +97,7 @@
         function delete_user (id) {
             var confirm = window.confirm("Are you sure you want to delete "+id+"?")
             if(confirm==true){
-                document.getElementById("admin_form").action = "https://signon-flask.herokuapp.com/delete_user/"+id
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/delete_user/"+id
                 document.getElementById("admin_form").submit()
             }
 
@@ -105,7 +105,7 @@
         function makeadmin(id) {
             var confirm = window.confirm("Are you sure you want to give admin access to "+id+"?")
             if(confirm==true){
-                document.getElementById("admin_form").action = "https://signon-flask.herokuapp.com/grant_access/"+id
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/grant_access/"+id
                 document.getElementById("admin_form").submit()
             }
 
@@ -114,7 +114,7 @@
         function approve(id) {
             var confirm = window.confirm("Are you sure you want to approve access for "+id+"?")
             if(confirm==true){
-                document.getElementById("admin_form").action = "https://signon-flask.herokuapp.com/verify/"+id
+                document.getElementById("admin_form").action = "http://127.0.0.1:5000/verify/"+id
                 document.getElementById("admin_form").submit()
             }
 
