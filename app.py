@@ -28,6 +28,8 @@ REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs co
 SECRET_KEY = 'development key'
 DEBUG = True
 
+isadmin = 0
+
 app = Flask(__name__)
 app.debug = DEBUG
 app.secret_key = SECRET_KEY
@@ -88,7 +90,7 @@ def Identity_repr(key):
 
 @app.route('/')
 def index():
-    global cur, con
+    global cur, con, isadmin
     access_token = session.get('access_token')
     if access_token is None:
         return redirect(url_for('login'))
@@ -139,6 +141,7 @@ def index():
         cur.execute("SELECT isAdmin FROM Identity WHERE email='" + str(json1_data["email"]) + "'")
         rows = cur.fetchall()
         json1_data["isAdmin"] = rows[0][0]
+        isadmin = rows[0][0]
         return render_template('temp.html', data = json1_data)  ## render shortcut one
 
     return render_template('temp.html', data = json1_data)
@@ -227,6 +230,11 @@ def authorized(resp):
 
 @app.route('/admin')
 def admin():
+    access_token = session.get('access_token')
+    if access_token is None:
+        return redirect(url_for('login'))
+    if isadmin == 0:
+        return redirect(url_for('login'))
     global users
     print "admin here"
     userrecords = administrator().users(con)
