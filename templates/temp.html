@@ -3,15 +3,13 @@
   <head>
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
   <script>
-
     function beforeRedirect(str){
         //check if Rainbow graph service is invoked
         if(str == "RainbowGraph"){
-            document.getElementById("form1").action = "http://127.0.0.2:3005/developer?id={{  id }}";
+            document.getElementById("form1").action = "https://afternoon-river-37914.herokuapp.com/developer?id={{  id }}";
             document.getElementById("form1").submit();
         }
     }
-
     function openTab(evt, tabName) {
         if(tabName=="links"){
             document.getElementById("manageToken").style.display = "none";
@@ -42,13 +40,11 @@
         }
         evt.currentTarget.className += " active";
     }
-
     function onLoad(){
         document.getElementById("manageToken").style.display = "none";
         document.getElementById("viewToken").style.display = "none";
         document.getElementById('link').className += 'active';
     }
-
     function copyToClipboard(elementId) {
       // Create an auxiliary hidden input
       var aux = document.createElement("input");
@@ -68,11 +64,9 @@
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
-
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn')) {
-
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
@@ -83,7 +77,6 @@
         }
       }
     }
-
     </script>
 
   </head>
