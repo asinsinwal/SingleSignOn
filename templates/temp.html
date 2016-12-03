@@ -5,64 +5,137 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/app.css">
   <script>
 
-{#            This JS method shall submit cross domain - Rainbow graph form request#}
     function beforeRedirect(str){
         //check if Rainbow graph service is invoked
         if(str == "RainbowGraph"){
-        document.getElementById("form1").action = "http://0.0.0.0:3005/developer";
-        document.getElementById("form1").submit();
-            }
-        //previous code
-{#        +<script>#}
-{# +jsonData = JSON.parse({{ json_data|tojson|safe }})#}
-{# +console.log(jsonData)#}
-{# +var url = "http://0.0.0.0:3005/?"+jsonData#}
-{# +window.location = url;#}
-{# +</script>#}
-        //previous code -end
-{#        var form1 = document.getElementById("form1");#}
-{#        form1.action="/postreq";#}
-{#        form1.method = "post"#}
-{#        form1.submit();#}
-}
+            document.getElementById("form1").action = "http://127.0.0.2:3005/developer?id={{  id }}";
+            document.getElementById("form1").submit();
+        }
+    }
 
     function openTab(evt, tabName) {
-        console.log(tabName);
-        if(document.getElementById("links").style.display == "none"){
+        if(tabName=="links"){
             document.getElementById("manageToken").style.display = "none";
             document.getElementById("links").style.display = "block";
+            document.getElementById("viewToken").style.display = "none";
+            if(document.getElementById('token')!=null)
+                document.getElementById('token').className -= 'active';
+            if(document.getElementById('viewtoken')!=null)
+                document.getElementById('viewtoken').className -= 'active';
         }
-        if(document.getElementById("manageToken").style.display == "none"){
+        else if(tabName=="token"){
             document.getElementById("links").style.display = "none";
             document.getElementById("manageToken").style.display = "block";
+            document.getElementById("viewToken").style.display = "none";
+            if(document.getElementById('link')!=null)
+                document.getElementById('link').className -= 'active';
+            if(document.getElementById('viewtoken')!=null)
+                document.getElementById('viewtoken').className -= 'active';
+        }
+        else if(tabName=="viewtoken"){
+            document.getElementById("links").style.display = "none";
+            document.getElementById("manageToken").style.display = "none";
+            document.getElementById("viewToken").style.display = "block";
+            if(document.getElementById('link')!=null)
+                document.getElementById('link').className -= 'active';
+            if(document.getElementById('token')!=null)
+                document.getElementById('token').className -= 'active';
         }
         evt.currentTarget.className += " active";
     }
-    document.getElementById("manageToken").style.display = "none";
+
+    function onLoad(){
+        document.getElementById("manageToken").style.display = "none";
+        document.getElementById("viewToken").style.display = "none";
+        document.getElementById('link').className += 'active';
+    }
+
+    function copyToClipboard(elementId) {
+      // Create an auxiliary hidden input
+      var aux = document.createElement("input");
+      // Get the text from the element passed into the input
+      aux.setAttribute("value", document.getElementById(elementId).value);
+      // Append the aux input to the body
+      document.body.appendChild(aux);
+      // Highlight the content
+      aux.select();
+      // Execute the copy command
+      document.execCommand("copy");
+      // Remove the input from the body
+      document.body.removeChild(aux);
+    }
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
     </script>
 
   </head>
-  <body>
+  <body onload="onLoad()">
 
     <form id="form1" name="form1" method="get" action = "">
-    <div id="headerContainer" class="headerContainer" align="center">
-        <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
-    </div>
-    <ul class="tab">
-        <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
-        <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
-    </ul>
-    <div id="links">
-        <input type="hidden" name="id" value={{ id }}>
-        <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
+        <div id="headerContainer" class="headerContainer" align="center">
+            <p class="headerLogo" align="center"><b style="top: 30px;position: relative;">Single Sign-on Portal</b></p>
+        </div>
+        <ul class="tab">
+            <li><a href="javascript:void(0)" id="link" onclick="openTab(event, 'links')">Links</a></li>
+            <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
+            <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
+        </ul>
+        <div class="aview">
+            {% if data["isAdmin"]==1 %}
+                <a href="/admin">Admin view</a>
+            {% endif %}
+        </div>
+        <div class="dropdown">
+            <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
+            <div id="myDropdown" class="dropdown-content">
+             <a href="/logout">Log out</a>
+            </div>
+        </div>
+        <div id="links">
+            <input type="hidden" name="id" value={{ data["id"] }}>
+            <span>Link 1 :</span><a href="#" onclick="beforeRedirect(this.innerHTML)">RainbowGraph</a>
+        </div>
+        <div id="manageToken">
+            <a href="/delete_token?id={{ id }}">Delete Token</a>
+        </div>
+        <div id="viewToken">
+            <div id="example-target" class="example">
+            <div class="input-group">
+                <span>Token : </span>
+                <input id="token_data" type="text" value="{{ data['id'] }}" readonly>
+                <span class="input-group-button">
+                <button class="btn tooltip" type="button" onclick="copyToClipboard('token_data')">
+                    <img class="clippy" src="static/images/clippy.svg" width="13" alt="Click to copy">
+                    <span class="tooltiptext">Copy to clipboard</span>
+                </button>
+                </span>
+            </div>
+            </div>
+        </div>
 
-    </div>
-    <div id="manageToken">
-         <h1>Manage Tokens</h1>
-         <form2 action='/delete/{{ id }}/' method = "GET">
-         <input type = "submit" value="Delete Token">
-       </form2>
-     </div>
-   </form>
+        {% if data["calls"]==0 %}
+                <h1>You have used maximum allowed calls for the day!</h1>
+            {% endif %}
+    </form>
+
   </body>
 </html>
