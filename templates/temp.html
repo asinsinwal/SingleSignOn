@@ -98,15 +98,22 @@
             <li><a href="javascript:void(0)" id="token" onclick="openTab(event, 'token')">Manage Token</a></li>
             <li><a href="javascript:void(0)" id="viewtoken" onclick="openTab(event, 'viewtoken')">View Token</a></li>
         </ul>
-        <div class="aview">
-            {% if data["isAdmin"]==1 %}
+        {% if data["isAdmin"]==1 %}
+            <div class="aview">
                 <a href="/admin">Admin view</a>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
         <div class="dropdown">
-            <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
-            <div id="myDropdown" class="dropdown-content">
-             <a href="/logout">Log out</a>
+            {%  if data['name']=="" %}
+                <button onmouseover="myFunction()" class="dropbtn"> "User"</button>
+                <div id="myDropdown" class="dropdown-content">
+                <a href="/logout">Log out</a>
+            {% endif %}
+            {%  if data['name']!=nil %}
+                <button onmouseover="myFunction()" class="dropbtn">{{ data["name"] }}</button>
+                <div id="myDropdown" class="dropdown-content">
+                <a href="/logout">Log out</a>
+            {% endif %}
             </div>
         </div>
         <div id="links">
@@ -131,7 +138,7 @@
             </div>
         </div>
 
-        {% if data["calls"]==0 %}
+            {% if data["calls"]==0 %}
                 <h1>You have used maximum allowed calls for the day!</h1>
             {% endif %}
     </form>

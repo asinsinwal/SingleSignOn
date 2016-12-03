@@ -25,6 +25,8 @@ REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs co
 SECRET_KEY = 'development key'
 DEBUG = True
 
+isadmin = 0
+
 app = Flask(__name__)
 app.debug = DEBUG
 app.secret_key = SECRET_KEY
@@ -59,7 +61,8 @@ def setup_sql_lite_db():
               "    id VARCHAR, " \
               "    email TEXT," \
 	      "    verified VARCHAR," \
-              "    isAdmin INTEGER )"
+              "    isAdmin INTEGER " \
+              " calls INTEGER)"
         cur.execute(sql)
         con.commit()
 
@@ -85,7 +88,7 @@ def Identity_repr(key):
 
 @app.route('/')
 def index():
-    global cur, con
+    global cur, con, isadmin
     access_token = session.get('access_token')
     if access_token is None:
         return redirect(url_for('login'))
@@ -140,6 +143,8 @@ def index():
         print rows[0][0]
         print rows[0][1]
         json1_data["isAdmin"] = rows[0][0]
+
+        isadmin = rows[0][0]
         json1_data["calls"] = rows[0][1]
         return render_template('temp.html', data = json1_data)  ## render shortcut one
 
@@ -174,6 +179,7 @@ def register():
             json["verified"] = 0
             json["id"] = None
             json["isAdmin"] = 0
+            json["calls"] = 20
             print json
             insert(json,cur,con)
             return redirect('/approval')
@@ -192,8 +198,6 @@ def developer(key):
         calls = cur.fetchall()
         no_calls = int(calls[0][0])
         if (no_calls <= 0):
-            message = Markup("<h1>Voila! Platform is ready to used</h1>")
-            flash(message)
             return redirect('/')
         else:
             no_calls = int(calls[0][0]) - int(1)
@@ -213,8 +217,8 @@ def delete_token():
 
     #return render_template('temp.html', json_data = key)  ## render shortcut one
 def insert(json1_data,cur,con):
-    cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
-+ str(json1_data["verified"]) +"', '" + str(json1_data["isAdmin"]) +"')")
+    cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin, calls ) VALUES('" + str(json1_data["id"]) + "', '" + str(json1_data["email"]) +"', '"
++ str(json1_data["verified"]) +"', '" + str(json1_data["isAdmin"]) +"', '" + str(json1_data["calls"]) +"')")
     con.commit()
 
 def update(json1_data,cur,con):
@@ -240,6 +244,11 @@ def authorized(resp):
 
 @app.route('/admin')
 def admin():
+    access_token = session.get('access_token')
+    if access_token is None:
+        return redirect(url_for('login'))
+    if isadmin == 0:
+        return redirect(url_for('login'))
     global users
     print "admin here"
     userrecords = administrator().users(con)
