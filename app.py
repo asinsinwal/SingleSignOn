@@ -51,19 +51,20 @@ google = oauth.remote_app('google',
 
 def setup_sql_lite_db():
     try:
-
         global con
-        con = sqllite.connect('identity_json.db', check_same_thread=False)
         global cur
+        con = sqllite.connect('identity_json.db', check_same_thread=False)
         cur = con.cursor()
         #cur.execute('DROP TABLE IF EXISTS Comment')
         sql = "CREATE TABLE IF NOT EXISTS Identity (" \
               "    id VARCHAR, " \
               "    email TEXT," \
 	      "    verified VARCHAR," \
-              "    isAdmin INTEGER " \
+              "    isAdmin INTEGER, " \
               " calls INTEGER)"
         cur.execute(sql)
+        con.commit()
+        cur.execute("INSERT INTO Identity (id, email ,verified, isAdmin, calls ) VALUES('102394385847836996648', 'csc517sso@gmail.com', '1', '1', '100')")
         con.commit()
 
     except sqllite.Error, e:
