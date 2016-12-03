@@ -192,8 +192,6 @@ def developer(key):
         calls = cur.fetchall()
         no_calls = int(calls[0][0])
         if (no_calls <= 0):
-            message = Markup("<h1>Voila! Platform is ready to used</h1>")
-            flash(message)
             return redirect('/')
         else:
             no_calls = int(calls[0][0]) - int(1)
